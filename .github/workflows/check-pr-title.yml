@@ -28,16 +28,14 @@ jobs:
         run: |
           TITLE="${{ env.PR_TITLE }}"
           
-          # Check length
-          MIN_LENGTH=5
-          MAX_LENGTH=100
+          MIN_LENGTH=2
+          MAX_LENGTH=25
           
           if [ ${#TITLE} -lt $MIN_LENGTH ] || [ ${#TITLE} -gt $MAX_LENGTH ]; then
             echo "Error: PR title must be between $MIN_LENGTH and $MAX_LENGTH characters."
             exit 1
           fi
 
-          # Check camelCase
           if ! [[ "$TITLE" =~ ^[a-z]+([A-Z][a-z]+)*$ ]]; then
             echo "Error: PR title must be in camelCase format."
             exit 1
