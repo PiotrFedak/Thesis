@@ -9,6 +9,10 @@ jobs:
     name: Check PR title
     runs-on: ubuntu-latest
     steps:
-      - uses: blumilksoftware/action-pr-title@v1.2.0
-       with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    uses: deepakputhraya/action-pr-title@master
+    with:
+    regex: '([a-z])+\/([a-z])+'
+    prefix_case_sensitive: false 
+    min_length: 2
+    max_length: 25
+   github_token: ${{ secrets.GITHUB_TOKEN }}
