@@ -1,20 +1,12 @@
 name: Check PR Title
 on:
   pull_request:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - ready_for_review
-      - reopened
+    branches: [ "main" ]
+    types: [opened, edited, synchronize, ready_for_review, reopened]
 
 jobs:
   check-pr-title:
     name: Check PR title
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Blumilk Pull Request title rules
-        uses: blumilksoftware/action-pr-title@v1.2.0
+      - uses: blumilksoftware/action-pr-title@v1.2.0
