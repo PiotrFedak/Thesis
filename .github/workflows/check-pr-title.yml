@@ -1,24 +1,14 @@
-name: PR Title Check
-
+name: Check PR Title
 on:
   pull_request:
-    types:
-      - opened
-      - edited
-      - synchronize
+    branches: [ "main" ]
+    types: [opened, edited, synchronize, ready_for_review, reopened]
 
 jobs:
   check-pr-title:
+    name: Check PR title
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Check PR title
-        uses: deepakputhraya/action-pr-title@v1.0.3
-        with:
-          regex: '^#\d+'
-          prefix_case_sensitive: false
-          min_length: 1
-          max_length: 25
+      - uses: blumilksoftware/action-pr-title@v1.2.0
+       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
