@@ -1,7 +1,12 @@
 name: Check PR Title
+
 on:
+  push:
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
     types: [opened, edited, synchronize, ready_for_review, reopened]
 
 jobs:
