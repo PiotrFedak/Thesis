@@ -2,8 +2,6 @@ name: Check PR Title
 
 on:
   pull_request:
-    branches:
-      - main
     types:
       - opened
       - edited
@@ -13,16 +11,36 @@ on:
 
 jobs:
   check-pr-title:
-    name: Check PR title
+    name: Check PR Title
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Check PR title
-        uses: deepakputhraya/action-pr-title@v1.0.2
-        with:
-          prefix_case_sensitive: false
-          min_length: 2
-          max_length: 25
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get PR title
+        id: pr_title
+        run: |
+          PR_TITLE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }} | jq -r '.title')
+          echo "PR_TITLE=${PR_TITLE}" >> $GITHUB_ENV
+
+      - name: Validate PR title
+        run: |
+          TITLE="${{ env.PR_TITLE }}"
+          
+          # Check length
+          MIN_LENGTH=5
+          MAX_LENGTH=100
+          
+          if [ ${#TITLE} -lt $MIN_LENGTH ] || [ ${#TITLE} -gt $MAX_LENGTH ]; then
+            echo "Error: PR title must be between $MIN_LENGTH and $MAX_LENGTH characters."
+            exit 1
+          fi
+
+          # Check camelCase
+          if ! [[ "$TITLE" =~ ^[a-z]+([A-Z][a-z]+)*$ ]]; then
+            echo "Error: PR title must be in camelCase format."
+            exit 1
+          fi
+
+          echo "PR title is valid."
