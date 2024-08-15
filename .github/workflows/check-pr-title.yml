@@ -1,23 +1,28 @@
 name: Check PR Title
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
-    types: [opened, edited, synchronize, ready_for_review, reopened]
+    types:
+      - opened
+      - edited
+      - synchronize
+      - ready_for_review
+      - reopened
 
 jobs:
   check-pr-title:
     name: Check PR title
     runs-on: ubuntu-latest
     steps:
-    uses: deepakputhraya/action-pr-title@master
-    with:
-    regex: '([a-z])+\/([a-z])+'
-    prefix_case_sensitive: false 
-    min_length: 2
-    max_length: 25
-   github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Check PR title
+        uses: deepakputhraya/action-pr-title@v1.0.2
+        with:
+          prefix_case_sensitive: false
+          min_length: 2
+          max_length: 25
+          github_token: ${{ secrets.GITHUB_TOKEN }}
