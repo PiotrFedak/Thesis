@@ -11,9 +11,10 @@ on:
 jobs:
   check-pr-title:
     name: Check PR title
-    timeout-minutes: 5
-    if: github.event.pull_request.draft == false
-    runs-on: ubuntu-22.04
-
+    runs-on: ubuntu-latest
     steps:
-      - uses: blumilksoftware/action-pr-title@v1.2.0
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Blumilk Pull Request title rules
+        uses: blumilksoftware/action-pr-title@v1.2.0
