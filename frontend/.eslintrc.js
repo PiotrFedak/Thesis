@@ -4,7 +4,11 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended',
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -15,5 +19,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  rules: {},
+  rules: {
+    'prettier/prettier': 'error',
+  },
 };
