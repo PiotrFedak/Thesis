@@ -1,0 +1,52 @@
+version: '4.24.1'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      DB_HOST: db
+      DB_DATABASE: thesis
+      DB_USERNAME: root
+      DB_PASSWORD: admin
+    ports:
+      - 9000:9000
+    volumes:
+      - ./backend:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - app
+
+  frontend:
+  build:
+    context: ./frontend
+    dockerfile: Dockerfile
+  restart: always
+  tty: true
+  ports:
+    - 3000:80
+  volumes:
+    - ./frontend:/app
+  networks:
+    - app
+
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: thesis
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  db_data:

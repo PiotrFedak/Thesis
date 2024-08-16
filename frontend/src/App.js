@@ -1,22 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
+    <div className="App min-h-screen">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <p className="text-white">
+          Edit <code className="bg-emerald-800 text-white">src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="card bg-base-100 shadow-xl">
+          <div className="card-body">
+            <h2 className="card-title">Card Title</h2>
+            <p>Some quick example text to build on the card title and make up the bulk of the card&apos;s content.</p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-secondary">Secondary Button</button>
+            </div>
+          </div>
+        </div>
       </header>
     </div>
   );
