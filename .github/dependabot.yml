@@ -4,8 +4,22 @@ updates:
     directory: "/frontend"
     schedule:
       interval: "weekly"
+    groups:
+      all-updates:
+        patterns:
+          - "*"
+        group-name: "all-npm-updates"
+        commit-message:
+          prefix: "- (npm) "
 
   - package-ecosystem: "composer"
     directory: "/backend"
     schedule:
       interval: "weekly"
+    groups:
+      all-updates:
+        patterns:
+          - "*"
+        group-name: "all-composer-updates"
+        commit-message:
+          prefix: "- (composer) "

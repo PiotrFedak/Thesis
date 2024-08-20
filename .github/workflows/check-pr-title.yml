@@ -29,7 +29,7 @@ jobs:
           TITLE="${{ env.PR_TITLE }}"
           
           MIN_LENGTH=2
-          MAX_LENGTH=25
+          MAX_LENGTH=40
           
           if [ ${#TITLE} -lt $MIN_LENGTH ] || [ ${#TITLE} -gt $MAX_LENGTH ]; then
             echo "Error: PR title must be between $MIN_LENGTH and $MAX_LENGTH characters."
