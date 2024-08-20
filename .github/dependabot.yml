@@ -8,9 +8,6 @@ updates:
       all-updates:
         patterns:
           - "*"
-        group-name: "all-npm-updates"
-        commit-message:
-          prefix: "- (npm) "
 
   - package-ecosystem: "composer"
     directory: "/backend"
@@ -20,6 +17,3 @@ updates:
       all-updates:
         patterns:
           - "*"
-        group-name: "all-composer-updates"
-        commit-message:
-          prefix: "- (composer) "
