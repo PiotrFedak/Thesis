@@ -10,15 +10,23 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
-      <h1 className="w-full text-3xl font-bold text-[#00df9a]">NBAVerse.</h1>
-      <ul className="hidden md:flex">
-        <li className="p-4">Home</li>
-        <li className="p-4">
-          <Link to="/Map">Map</Link>
-        </li>
-      </ul>
-      <div onClick={handleNavChange} className="block md:hidden z-20 relative">
+    <div className="border-2 rounded-lg border-gray-500 my-4 mx-12 relative">
+      <div className="flex justify-between max-w-[1240px] mx-auto px-3 items-center h-28 text-white">
+        <h1 className="w-full text-3xl font-bold text-[#2c51b7]">NBAVerse.</h1>
+        <ul className="hidden md:flex">
+          <li className="p-4">Home</li>
+          <li className="p-4">
+            <Link to="/Map">Map</Link>
+          </li>
+          <li className="p-4">Teams</li>
+          <li className="p-4">PLACEHOLDER</li>
+          <li className="p-4">Profile</li>
+        </ul>
+      </div>
+      <div
+        onClick={handleNavChange}
+        className="block md:hidden z-20 absolute top-4 right-4"
+      >
         {nav ? <IoCloseCircleOutline size={30} /> : <IoMenu size={30} />}
       </div>
       <ul
@@ -32,7 +40,9 @@ const Navbar = () => {
           NBAVerse.
         </h1>
         <li className="p-4 border-b border-gray-600">Home</li>
-        <li className="p-4 border-b border-gray-600">Map</li>
+        <li className="p-4 border-b border-gray-600">
+          <Link to="/Map">Map</Link>
+        </li>
       </ul>
     </div>
   );
