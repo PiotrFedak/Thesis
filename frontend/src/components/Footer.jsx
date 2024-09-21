@@ -1,15 +1,18 @@
 import React from 'react';
 import { FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
-
+import { IoBasketballOutline } from 'react-icons/io5';
 const Footer = () => {
   return (
-    <div className="footer footer-center bg-base-200 text-base-content rounded p-10 border mt-2">
-      <nav className="grid grid-flow-col gap-4">
-        <a className="link link-hover">Home</a>
-        <a className="link link-hover">Map</a>
-        <a className="link link-hover">Teams</a>
-        <a className="link link-hover">Profile</a>
-      </nav>
+    <div className="footer footer-center p-10">
+      <aside>
+        <IoBasketballOutline size={60} color="#C9082A" />
+        <p className="font-head text-2xl">NBAVerse.</p>
+        <br />
+        Providing reliable tech since 1992
+        <p className="font-body">
+          Copyright © {new Date().getFullYear()} - All right reserved
+        </p>
+      </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">
           <a>
@@ -23,9 +26,6 @@ const Footer = () => {
           </a>
         </div>
       </nav>
-      <aside>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved xyz</p>
-      </aside>
     </div>
   );
 };
