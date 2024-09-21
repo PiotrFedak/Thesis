@@ -3,7 +3,7 @@ import { FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
 import { IoBasketballOutline } from 'react-icons/io5';
 const Footer = () => {
   return (
-    <div className="footer footer-center p-10">
+    <div className="footer footer-center p-8">
       <aside>
         <IoBasketballOutline size={60} color="#C9082A" />
         <p className="font-head text-2xl">NBAVerse.</p>

@@ -1,29 +1,39 @@
 import React from 'react';
-import { MapContainer, TileLayer, LayersControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import Navbar from './Navbar';
+import MarkerClusterGroup from 'react-leaflet-cluster';
+import markersData from './markersData';
 
 const Map = () => {
   const center = [38.0, -97.0];
-  const zoom = 2;
+  const zoom = 5;
 
   return (
-    <div className="h-screen overflow-hidden text-custom-black dark:text-white dark:bg-custom-black bg-white">
-      <Navbar />
-      <div className="flex justify-center items-center h-full">
-        <div className="w-11/12 h-5/6 mt-1 mb-36">
-          <MapContainer
-            center={center}
-            zoom={zoom}
-            className="h-full rounded-2xl"
-            maxBoundsViscosity={0.9}
-            minZoom={5}
-            maxZoom={16}
-          >
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <LayersControl position="topright"></LayersControl>
-          </MapContainer>
-        </div>
+    <div className="flex justify-center items-center h-full">
+      <div className="w-11/12 h-5/6 mt-1 mb-36">
+        <MapContainer
+          center={center}
+          zoom={zoom}
+          className="h-full rounded-2xl"
+          maxBoundsViscosity={0.9}
+          minZoom={5}
+          maxZoom={16}
+        >
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+          <MarkerClusterGroup>
+            {markersData.map((marker, index) => (
+              <Marker key={index} position={marker.location} icon={marker.icon}>
+                <Popup>
+                  <h2 className="text-center text-custom-brown font-semibold">
+                    {marker.team}
+                  </h2>
+                  <p>{marker.address}</p>
+                </Popup>
+              </Marker>
+            ))}
+          </MarkerClusterGroup>
+        </MapContainer>
       </div>
     </div>
   );
