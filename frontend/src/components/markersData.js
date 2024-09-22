@@ -28,6 +28,15 @@ const markers = [
       iconSize: [32, 32],
     }),
   },
+  {
+    team: 'Boston Celtics',
+    location: [42.36619542101667, -71.06215831120917],
+    address: '100 Legends Way, Boston, MA 02114',
+    icon: new Icon({
+      iconUrl: 'BostonCeltics.png',
+      iconSize: [32, 32],
+    }),
+  },
 ];
 
 export default markers;

@@ -29,7 +29,9 @@ const Navbar = () => {
             <Link to="/Map">Map</Link>
           </li>
           <li className="p-4">Teams</li>
-          <li className="p-4">PLACEHOLDER</li>
+          <li className="p-4">
+            <Link to="/Stats">Stats</Link>
+          </li>
           <li className="p-4">Profile</li>
           <li className="pt-8 pl-4">
             <Switcher />
@@ -58,7 +60,7 @@ const Navbar = () => {
         <li className="p-4 border-b border-gray-600">
           <Link to="/Map">Map</Link>
         </li>
-        <li className="p-4 border-b border-gray-600">Profile</li>
+        <li className="p-4 border-b border-gray-600">Teams</li>
         <li className="absolute top-8 right-28">
           <Switcher />
         </li>
