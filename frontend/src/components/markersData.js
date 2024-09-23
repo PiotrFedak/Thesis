@@ -37,6 +37,24 @@ const markers = [
       iconSize: [32, 32],
     }),
   },
+  {
+    team: 'Los Angeles Lakers',
+    location: [34.04312667072381, -118.26702563097173],
+    address: '1111 S Figueroa St, Los Angeles, CA 90015',
+    icon: new Icon({
+      iconUrl: 'LosAngelesLakers.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'new york knicks',
+    location: [40.75071835493097, -73.99242633451308],
+    address: ' New York, NY 10001',
+    icon: new Icon({
+      iconUrl: 'newYorkKnicks.png',
+      iconSize: [34, 34],
+    }),
+  },
 ];
 
 export default markers;

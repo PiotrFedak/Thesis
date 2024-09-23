@@ -9,7 +9,7 @@ const Map = () => {
   const zoom = 5;
 
   return (
-    <div className="flex justify-center items-center h-full">
+    <div className="flex justify-center items-center h-full z-10">
       <div className="w-11/12 h-5/6 mt-1 mb-36">
         <MapContainer
           center={center}
@@ -18,6 +18,7 @@ const Map = () => {
           maxBoundsViscosity={0.9}
           minZoom={5}
           maxZoom={16}
+          style={{ zIndex: 1 }}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
