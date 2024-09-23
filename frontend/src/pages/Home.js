@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   return (
-    <div className="text-custom-black dark:text-white">
+    <div className="h-screen text-custom-black dark:text-white">
       <Navbar />
       <Hero />
       <Footer />

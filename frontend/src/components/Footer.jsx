@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
 import { IoBasketballOutline } from 'react-icons/io5';
+
 const Footer = () => {
   return (
     <div className="footer footer-center p-8">
