@@ -2,7 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import MapPage from './pages/MapPage';
-import StatsPage from './pages/StatsPage';
+import TeamsPage from './pages/TeamsPage';
 import AuthPage from './pages/AuthPage';
 
 const router = createBrowserRouter([
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
     element: <MapPage />,
   },
   {
-    path: '/Stats',
-    element: <StatsPage />,
+    path: '/Teams',
+    element: <TeamsPage />,
   },
   {
     path: '/Auth',
