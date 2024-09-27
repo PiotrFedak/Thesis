@@ -1,8 +1,8 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import MarkerClusterGroup from 'react-leaflet-cluster';
 import markersData from './markersData';
+import MarkerClusterGroup from 'react-leaflet-cluster';
 
 const Map = () => {
   const center = [38.0, -97.0];
@@ -22,7 +22,7 @@ const Map = () => {
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-          <MarkerClusterGroup>
+          <MarkerClusterGroup disableClusteringAtZoom={6}>
             {markersData.map((marker, index) => (
               <Marker key={index} position={marker.location} icon={marker.icon}>
                 <Popup>

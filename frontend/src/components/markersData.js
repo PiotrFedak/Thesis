@@ -43,7 +43,7 @@ const markers = [
     address: '1111 S Figueroa St, Los Angeles, CA 90015',
     icon: new Icon({
       iconUrl: 'LosAngelesLakers.png',
-      iconSize: [34, 34],
+      iconSize: [36, 36],
     }),
   },
   {
@@ -52,7 +52,7 @@ const markers = [
     address: ' New York, NY 10001',
     icon: new Icon({
       iconUrl: 'newYorkKnicks.png',
-      iconSize: [34, 34],
+      iconSize: [40, 40],
     }),
   },
   {
@@ -178,6 +178,96 @@ const markers = [
     address: '1 Frost Bank Center Dr, San Antonio, TX 78219',
     icon: new Icon({
       iconUrl: 'SanAntonioSpurs.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'Golden State Warriors',
+    location: [37.77147792281884, -122.38767444004293],
+    address: '1 Warriors Way, San Francisco, CA 94158',
+    icon: new Icon({
+      iconUrl: 'GoldenStateWarriors.png',
+      iconSize: [40, 40],
+    }),
+  },
+  {
+    team: 'Houston Rockets',
+    location: [29.769105175055262, -95.36338776944349],
+    address: '1510 Polk St, Houston, TX 77002,',
+    icon: new Icon({
+      iconUrl: 'HoustonRockets.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'Brooklyn Nets',
+    location: [40.68328067488448, -73.97547086295634],
+    address: '620 Atlantic Ave, Brooklyn, NY 11217',
+    icon: new Icon({
+      iconUrl: 'BrooklynNets.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'Chicago Bulls',
+    location: [41.896238606021335, -87.67536047463182],
+    address: '1901 W Madison St, Chicago, IL 60612',
+    icon: new Icon({
+      iconUrl: 'ChicagoBulls.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'Cleveland Cavaliers',
+    location: [41.503130370542735, -81.6885240438692],
+    address: '1 Center Court, Cleveland, OH 44115',
+    icon: new Icon({
+      iconUrl: 'ClevelandCavaliers.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'Charlotte Hornets',
+    location: [35.22783785681046, -80.83970735663499],
+    address: '333 E Trade St, Charlotte, NC 28202',
+    icon: new Icon({
+      iconUrl: 'CharlotteHornets.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'Dallas Mavericks',
+    location: [32.8103442301582, -96.80950968332428],
+    address: '2500 Victory Ave, Dallas, TX 75219',
+    icon: new Icon({
+      iconUrl: 'DallasMavericks.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'Utah Jazz',
+    location: [40.76971807394582, -111.90137289775218],
+    address: '301 S Temple, Salt Lake City, UT 84101',
+    icon: new Icon({
+      iconUrl: 'UtahJazz.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'Memphis Grizzlies',
+    location: [35.14259406573528, -90.05163738384557],
+    address: '191 Beale St, Memphis, TN 38103',
+    icon: new Icon({
+      iconUrl: 'memphisGrizzlies.png',
+      iconSize: [34, 34],
+    }),
+  },
+  {
+    team: 'Los Angeles Clippers',
+    location: [33.946029198003394, -118.34200356917704],
+    address: '3930 W Century Blvd, Inglewood, CA 90303',
+    icon: new Icon({
+      iconUrl: 'LosAngelesClippers.png',
       iconSize: [34, 34],
     }),
   },
