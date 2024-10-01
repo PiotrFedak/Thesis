@@ -5,7 +5,7 @@ import {
   IoMenu,
   IoBasketballOutline,
 } from 'react-icons/io5';
-import Switcher from '../Switcher';
+import Switcher from '../components/comon/Switcher';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
             <Link to="/Teams">Teams</Link>
           </li>
           <li className="p-4">
-            <Link to="/Stats">Stats</Link>
+            <Link to="/Players">Players</Link>
           </li>
           <li className="p-4">Profile</li>
           <li className="pt-8 pl-4">

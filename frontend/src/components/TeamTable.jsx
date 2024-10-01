@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Pagination from './comon/Pagination';
 
 const TeamTable = () => {
   const [teamData, setTeamData] = useState([]);
@@ -51,7 +52,6 @@ const TeamTable = () => {
 
   return (
     <div>
-      {/* Team Table */}
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -77,18 +77,11 @@ const TeamTable = () => {
         </table>
       </div>
 
-      {/* Pagination */}
-      <div className="join mt-4">
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i + 1}
-            className={`join-item btn ${currentPage === i + 1 ? 'btn-active' : ''}`}
-            onClick={() => handlePageChange(i + 1)}
-          >
-            {i + 1}
-          </button>
-        ))}
-      </div>
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        handlePageChange={handlePageChange}
+      />
     </div>
   );
 };
