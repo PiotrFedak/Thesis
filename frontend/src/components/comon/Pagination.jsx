@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Pagination = ({ totalPages, currentPage, handlePageChange }) => {
   return (
-    <div className="flex justify-center mt-8">
+    <div className="flex justify-center mt-8 mb-8">
       <div className="join">
         {Array.from({ length: totalPages }, (_, i) => (
           <button

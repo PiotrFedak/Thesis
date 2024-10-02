@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Pagination from './comon/Pagination';
+import { FaSort, FaSortUp, FaSortDown } from 'react-icons/fa';
+import useSort from './comon/useSort';
 
 const TeamTable = () => {
   const [teamData, setTeamData] = useState([]);
@@ -32,14 +34,26 @@ const TeamTable = () => {
     nbaData();
   }, []);
 
-  const totalPages = Math.ceil(teamData.length / teamsPerPage);
+  const {
+    sortedData: sortedTeams,
+    requestSort,
+    sortConfig,
+  } = useSort(teamData);
 
+  const totalPages = Math.ceil(sortedTeams.length / teamsPerPage);
   const indexOfLastTeam = currentPage * teamsPerPage;
   const indexOfFirstTeam = indexOfLastTeam - teamsPerPage;
-  const currentTeams = teamData.slice(indexOfFirstTeam, indexOfLastTeam);
+  const currentTeams = sortedTeams.slice(indexOfFirstTeam, indexOfLastTeam);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const getSortIcon = (key) => {
+    if (sortConfig.key !== key) {
+      return <FaSort />;
+    }
+    return sortConfig.direction === 'ascending' ? <FaSortUp /> : <FaSortDown />;
   };
 
   if (loading) {
@@ -52,15 +66,36 @@ const TeamTable = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="table w-full">
+      <div className="overflow-x-auto mx-32">
+        <table className="table w-full table-fixed">
+          {' '}
           <thead>
             <tr>
-              <th>#</th>
-              <th>Team</th>
-              <th>City</th>
-              <th>Conference</th>
-              <th>Division</th>
+              <th className="w-1/12">#</th>
+              <th
+                onClick={() => requestSort('full_name')}
+                className="cursor-pointer w-3/12"
+              >
+                Team {getSortIcon('full_name')}
+              </th>
+              <th
+                onClick={() => requestSort('city')}
+                className="cursor-pointer w-3/12"
+              >
+                City {getSortIcon('city')}
+              </th>
+              <th
+                onClick={() => requestSort('conference')}
+                className="cursor-pointer w-3/12"
+              >
+                Conference {getSortIcon('conference')}
+              </th>
+              <th
+                onClick={() => requestSort('division')}
+                className="cursor-pointer w-3/12"
+              >
+                Division {getSortIcon('division')}
+              </th>
             </tr>
           </thead>
           <tbody>
