@@ -44,7 +44,7 @@ const Players = () => {
   };
 
   return (
-    <div>
+    <div className="h-screen overflow-hidden text-custom-black dark:text-white dark:bg-custom-black bg-white relative z-10">
       <Navbar />
       <div className="p-4 flex flex-col items-center">
         <div className="w-full max-w-lg">
@@ -57,7 +57,7 @@ const Players = () => {
             value={searchTerm}
             onChange={handleSearchChange}
             placeholder="Type player name..."
-            className="input input-bordered w-full mb-4"
+            className="input input-bordered w-full mb-4 dark:bg-custom-black bg-white dark:border-gray-600 border-gray-900"
           />
 
           <div className="flex justify-center">
@@ -76,7 +76,10 @@ const Players = () => {
         {players.length > 0 && (
           <ul className="mt-4 w-full max-w-2xl">
             {players.map((player) => (
-              <li key={player.id} className="border p-4 mb-4 text-center">
+              <li
+                key={player.id}
+                className="border p-4 mb-4 text-center dark:border-gray-600 border-gray-900"
+              >
                 <h2 className="text-xl font-semibold mb-2">
                   {player.first_name} {player.last_name}
                 </h2>

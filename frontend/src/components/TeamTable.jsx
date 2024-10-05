@@ -71,28 +71,28 @@ const TeamTable = () => {
           {' '}
           <thead>
             <tr>
-              <th className="w-1/12">#</th>
+              <th className="w-1/12 text-custom-black dark:text-white">#</th>
               <th
                 onClick={() => requestSort('full_name')}
-                className="cursor-pointer w-3/12"
+                className="cursor-pointer w-3/12 text-custom-black dark:text-white"
               >
                 Team {getSortIcon('full_name')}
               </th>
               <th
                 onClick={() => requestSort('city')}
-                className="cursor-pointer w-3/12"
+                className="cursor-pointer w-3/12 text-custom-black dark:text-white"
               >
                 City {getSortIcon('city')}
               </th>
               <th
                 onClick={() => requestSort('conference')}
-                className="cursor-pointer w-3/12"
+                className="cursor-pointer w-3/12 text-custom-black dark:text-white"
               >
                 Conference {getSortIcon('conference')}
               </th>
               <th
                 onClick={() => requestSort('division')}
-                className="cursor-pointer w-3/12"
+                className="cursor-pointer w-3/12 text-custom-black dark:text-white"
               >
                 Division {getSortIcon('division')}
               </th>
