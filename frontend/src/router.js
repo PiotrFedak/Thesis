@@ -5,6 +5,7 @@ import MapPage from './pages/MapPage';
 import TeamsPage from './pages/TeamsPage';
 import AuthPage from './pages/AuthPage';
 import Players from './pages/Players';
+import GuestLayout from './access/GuestLayout';
 
 const router = createBrowserRouter([
   {
@@ -20,12 +21,18 @@ const router = createBrowserRouter([
     element: <TeamsPage />,
   },
   {
-    path: '/Auth',
-    element: <AuthPage />,
-  },
-  {
     path: '/Players',
     element: <Players />,
+  },
+  {
+    path: '/',
+    element: <GuestLayout />,
+    children: [
+      {
+        path: '/Auth',
+        element: <AuthPage />,
+      },
+    ],
   },
 ]);
 
