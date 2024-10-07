@@ -1,25 +1,50 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import NBAVerse from '../Images/NBAVerse.png';
+import HeroMap from './HeroMap';
 
 const Hero = () => {
   return (
-    <div
-      className="hero min-h-screen"
-      style={{
-        backgroundImage:
-          'url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)',
-      }}
-    >
-      <div className="hero-overlay bg-opacity-60"></div>
-      <div className="hero-content  text-center">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-          <p className="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+    <div className="flex flex-col w-full">
+      <div className="flex flex-col lg:flex-row w-full h-screen">
+        <div className="flex flex-col justify-center items-start w-full lg:w-1/2 p-10 lg:p-20">
+          <h1 className="text-5xl lg:text-8xl font-bold text-custom-blue mb-6">
+            Welcome to NBAVerse
+          </h1>
+          <p className="text-xl lg:text-2xl text-gray-700 mb-10">
+            Explore the NBAVerse with a map of NBA clubs, team tables, player
+            search bar, and live statistics.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <Link
+            to="/Auth"
+            className="px-10 py-4 text-xl font-semibold bg-custom-blue text-white border-4 border-custom-blue rounded-md hover:bg-white hover:text-custom-blue transition-colors"
+          >
+            Get Started
+          </Link>
+          <div className="mt-4">
+            <p className="text-sm text-gray-500">
+              Already got an account?{' '}
+              <Link
+                to="/Auth"
+                className="text-custom-blue underline hover:text-custom-red"
+              >
+                Log in
+              </Link>
+            </p>
+          </div>
         </div>
+
+        <div className="lg:flex items-center justify-center w-full lg:w-1/2">
+          <img
+            alt="NBAVerse"
+            src={NBAVerse}
+            className="w-[80%] h-auto rounded-lg shadow-md"
+          />
+        </div>
+      </div>
+
+      <div className="w-full">
+        <HeroMap />
       </div>
     </div>
   );

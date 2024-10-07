@@ -34,7 +34,6 @@ const Footer = () => {
             <Link to="/Map">Map</Link>
             <Link to="/Teams">Teams</Link>
             <Link to="/Players">Players</Link>
-            <Link to="/Profile">Profile</Link>
           </div>
         </div>
       </div>
