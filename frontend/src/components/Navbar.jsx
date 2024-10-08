@@ -34,7 +34,6 @@ const Navbar = () => {
           <li className="p-4">
             <Link to="/Players">Players</Link>
           </li>
-          <li className="p-4">Profile</li>
           <li className="pt-8 pl-4">
             <Switcher />
           </li>
