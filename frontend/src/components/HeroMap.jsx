@@ -7,7 +7,7 @@ const HeroMap = () => {
     <div name="home" className="w-full h-screen flex flex-col justify-between">
       <div className="grid md:grid-cols-2 max-w-[1240px] m-auto">
         <div className="flex flex-col justify-center md:items-start w-full px-2 py-8">
-          <p className="text-2xl">Map of NBA Clubs</p>
+          <p className="text-2xl">Map</p>
           <h1 className="py-3 text-5xl md:text-7xl font-bold">
             NBAVerse Map Page
           </h1>
@@ -15,7 +15,7 @@ const HeroMap = () => {
             Interactive map displaying the locations of NBA clubs for easy
             navigation.
           </p>
-          <div className="py-4 px-6 sm:w-[60%] my-6 md:py-2 md:px-0">
+          <div className="md:py-2 md:px-0 py-4 px-6 sm:w-[60%] my-6">
             <Link
               to="/Map"
               className="px-10 py-4 text-xl font-semibold bg-custom-blue text-white border-4 border-custom-blue rounded-md hover:bg-white hover:text-custom-blue transition-colors"

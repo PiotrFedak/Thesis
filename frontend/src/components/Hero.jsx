@@ -2,15 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NBAVerse from '../Images/NBAVerse.png';
 import HeroMap from './HeroMap';
+import TeamHero from './TeamHero';
 
 const Hero = () => {
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col lg:flex-row w-full h-screen">
         <div className="flex flex-col justify-center items-start w-full lg:w-1/2 p-10 lg:p-20">
-          <h1 className="text-5xl lg:text-8xl font-bold text-custom-blue mb-6">
-            Welcome to NBAVerse
+          <h1 className="text-5xl lg:text-8xl font-bold mb-6">
+            Welcome to <span className="text-custom-blue">NBAVerse</span>
           </h1>
+
           <p className="text-xl lg:text-2xl text-gray-700 mb-10">
             Explore the NBAVerse with a map of NBA clubs, team tables, player
             search bar, and live statistics.
@@ -45,6 +47,7 @@ const Hero = () => {
 
       <div className="w-full">
         <HeroMap />
+        <TeamHero />
       </div>
     </div>
   );

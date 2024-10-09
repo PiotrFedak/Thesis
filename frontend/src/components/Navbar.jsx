@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="border-2 rounded-lg border-gray-500 my-4 mx-12 relative z-50">
+    <div className="my-4 mx-12 border-2 rounded-lg border-gray-500 relative z-50">
       <div className="flex justify-between max-w-[1340px] mx-auto px-3 items-center h-28">
         <div className="flex items-center">
           <IoBasketballOutline size={60} color="#C9082A" />
@@ -51,7 +51,7 @@ const Navbar = () => {
         className={
           nav
             ? 'fixed left-0 top-0 w-full h-[70%] border-b border-b-gray-900 bg-[#000300] ease-in-out duration-500 z-10'
-            : 'ease-in-out duration-500 fixed top-[-100%] w-full h-[70%] z-50'
+            : 'duration-500 fixed top-[-100%] ease-in-out w-full h-[70%] z-50'
         }
       >
         <h1 className="w-full text-3xl font-bold text-[#2c51b7] m-4">
