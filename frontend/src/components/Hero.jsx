@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NBAVerse from '../Images/NBAVerse.png';
 import HeroMap from './HeroMap';
 import TeamHero from './TeamHero';
+import NBAVerse from '../Images/NBAVerse.png';
 
 const Hero = () => {
   return (
