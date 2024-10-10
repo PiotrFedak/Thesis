@@ -5,21 +5,21 @@ import Test from '../Images/Test.png';
 const HeroMap = () => {
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-[1240px] m-auto">
+      <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-full m-0 px-2 lg:px-12">
         <div className="flex justify-center w-full lg:w-1/2 lg:justify-end">
           <img
             src={Test}
             alt="Map of NBA Clubs"
-            className="w-full h-auto md:w-[120%] md:scale-100"
+            className="w-full h-auto sm:scale-75 md:scale-75 lg:scale-90 xl:scale-100 2xl:scale-125 sm:mr-2 md:mr-4 lg:mr-6 xl:mr-8 2xl:mr-12"
           />
         </div>
 
-        <div className="text-center lg:text-left lg:w-1/2 flex flex-col justify-center px-6 py-8">
+        <div className="text-center lg:text-left lg:w-1/2 flex flex-col justify-center py-4 lg:py-8">
           <p className="text-2xl">Map</p>
           <h1 className="py-3 text-5xl md:text-7xl font-bold">
             NBAVerse Map Page
           </h1>
-          <p className="text-2xl mt-2 mb-2">
+          <p className="text-xl mt-2 mb-2">
             Interactive map displaying the locations of NBA clubs for easy
             navigation.
           </p>
