@@ -18,7 +18,7 @@ module.exports = {
         'custom-black': '#0D1117',
         'custom-white': '#f0f0f0',
         'custom-blue': '#17408B',
-        'custom-red': 'C9082A',
+        'custom-red': '#C9082A',
       },
       fontFamily: {
         head: 'Impact',
