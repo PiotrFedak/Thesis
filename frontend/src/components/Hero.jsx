@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import HeroMap from './HeroMap';
 import TeamHero from './TeamHero';
 import NBAVerse from '../Images/NBAVerse.png';
+import PlayerHero from './PlayerHero';
 
 const Hero = () => {
   return (
@@ -48,6 +49,7 @@ const Hero = () => {
       <div className="w-full">
         <HeroMap />
         <TeamHero />
+        <PlayerHero />
       </div>
     </div>
   );

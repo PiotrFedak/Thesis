@@ -1,47 +1,6 @@
 import React, { useState } from 'react';
-import { FaPlus } from 'react-icons/fa';
-
-const teams = [
-  {
-    name: 'Los Angeles Lakers',
-    image: 'LosAngelesLakers.png',
-    description:
-      'The Los Angeles Lakers, one of the most iconic NBA teams with a rich history of success.',
-    history: [
-      { year: '1980', event: 'Won their 7th NBA Championship' },
-      { year: '1984', event: 'Reached the NBA Finals' },
-      { year: '2000', event: 'Started the three-peat era' },
-      { year: '2010', event: 'Won their 16th NBA Championship' },
-      { year: '2020', event: 'Won the NBA Championship in the bubble' },
-    ],
-  },
-  {
-    name: 'Chicago Bulls',
-    image: 'ChicagoBulls.png',
-    description:
-      'The Chicago Bulls, home to basketball legend Michael Jordan and a legacy of greatness.',
-    history: [
-      { year: '1991', event: 'Won their first NBA Championship' },
-      { year: '1993', event: 'Completed the first three-peat' },
-      { year: '1996', event: '72-win season and NBA title' },
-      { year: '1998', event: 'Completed the second three-peat' },
-      { year: '2010', event: 'Reached the Eastern Conference Finals' },
-    ],
-  },
-  {
-    name: 'Toronto Raptors',
-    image: 'TorontoRaptors.png',
-    description:
-      'The Canadian professional basketball team Known for their resilience and championship win in 2019.',
-    history: [
-      { year: '2000', event: 'First playoff appearance' },
-      { year: '2016', event: 'Eastern Conference Finals' },
-      { year: '2018', event: 'Top seed in the Eastern Conference' },
-      { year: '2019', event: 'Won their first NBA Championship' },
-      { year: '2020', event: 'Reached the second round of playoffs' },
-    ],
-  },
-];
+import teams from './teamData';
+import { Link } from 'react-router-dom';
 
 const TeamHero = () => {
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
@@ -68,11 +27,11 @@ const TeamHero = () => {
         <span className="text-custom-red">NBAVerse</span> Team Page
       </h3>
       <p className="text-3xl text-center mb-12">
-        Here you can serach for NBA team you are looking for and learn more
+        Here you can search for NBA teams you are looking for and learn more
         about them.
       </p>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-20 border-b">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-20 border-x px-4">
         <div className="card w-96 flex flex-col items-center shadow-lg rounded-lg">
           <figure>
             <img
@@ -81,16 +40,28 @@ const TeamHero = () => {
               className="object-cover w-full h-48 rounded-t-lg"
             />
           </figure>
-          <div className="card-body h-64 flex flex-col justify-between">
-            <h2 className="card-title">{name}</h2>
-            <p className="flex-grow overflow-hidden text-ellipsis max-h-24">
+          <div className="card-body flex flex-col justify-between">
+            <h2 className="card-title text-center">{name}</h2>
+            <p className="flex-grow text-center max-h-24 overflow-hidden text-ellipsis">
               {description}
             </p>
-            <div className="card-actions justify-between w-full mt-4">
-              <button onClick={prevTeam} className="btn btn-secondary">
+            <div className="flex justify-center gap-4 mt-4">
+              <button
+                onClick={prevTeam}
+                className="btn bg-custom-blue text-white"
+              >
                 Previous
               </button>
-              <button onClick={nextTeam} className="btn btn-primary">
+              <div className="indicator">
+                <span className="indicator-item badge badge-secondary animate-bounce"></span>
+                <Link to="/Teams" className="btn bg-black text-white">
+                  Go to Teams Page
+                </Link>
+              </div>
+              <button
+                onClick={nextTeam}
+                className="btn bg-custom-red text-white"
+              >
                 Next
               </button>
             </div>
@@ -99,14 +70,14 @@ const TeamHero = () => {
 
         <ul className="timeline timeline-vertical p-4 rounded-lg shadow-lg max-w-xs">
           {history.map((item, index) => (
-            <li key={index} className="flex mb-4">
+            <li key={index} className="flex mb-4 items-center">
               <div className="timeline-start w-12 text-center text-xl font-bold">
                 {item.year}
               </div>
-              <div className="timeline-middle mx-4">
-                <FaPlus />
+              <div className="timeline-middle mx-4">-</div>
+              <div className="timeline-end timeline-box text-white bg-custom-blue">
+                {item.event}
               </div>
-              <div className="timeline-end timeline-box">{item.event}</div>
             </li>
           ))}
         </ul>
