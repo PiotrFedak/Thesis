@@ -23,7 +23,7 @@ const TeamHero = () => {
       className="w-full min-h-screen flex flex-col items-center py-8"
     >
       <h2 className="text-3xl text-center uppercase">Teams</h2>
-      <h3 className="text-5xl font-bold text-center py-6">
+      <h3 className="text-6xl font-bold text-center py-6">
         <span className="text-custom-red">NBAVerse</span> Team Page
       </h3>
       <p className="text-3xl text-center mb-12">
@@ -40,8 +40,10 @@ const TeamHero = () => {
               className="object-cover w-full h-48 rounded-t-lg"
             />
           </figure>
-          <div className="card-body flex flex-col justify-between">
-            <h2 className="card-title text-center">{name}</h2>
+          <div className="card-body flex flex-col items-center justify-between">
+            <div className="flex justify-center w-full">
+              <h2 className="card-title text-center">{name}</h2>
+            </div>
             <p className="flex-grow text-center max-h-24 overflow-hidden text-ellipsis">
               {description}
             </p>
@@ -53,14 +55,14 @@ const TeamHero = () => {
                 Previous
               </button>
               <div className="indicator">
-                <span className="indicator-item badge badge-secondary animate-bounce"></span>
+                <span className="indicator-item badge bg-custom-red animate-bounce"></span>
                 <Link to="/Teams" className="btn bg-black text-white">
                   Go to Teams Page
                 </Link>
               </div>
               <button
                 onClick={nextTeam}
-                className="btn bg-custom-red text-white"
+                className="btn bg-custom-blue text-white"
               >
                 Next
               </button>

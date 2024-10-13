@@ -38,6 +38,27 @@ const teams = [
       { year: '2020', event: 'Reached the second round of playoffs' },
     ],
   },
+  {
+    name: 'Denver Nuggets',
+    image: 'DenverNuggets.png',
+    description:
+      'Named after the Colorado Gold Rush, Best known for current star Nikola Jokić.',
+    history: [
+      { year: '1976', event: 'Joined the NBA from the ABA' },
+      {
+        year: '1985',
+        event: 'Reached the Western Conference Finals for the first time',
+      },
+      {
+        year: '2009',
+        event: 'Advanced to the Western Conference Finals with Carmelo Anthony',
+      },
+      {
+        year: '2023',
+        event: 'Won their first NBA Championship led by Nikola Jokić',
+      },
+    ],
+  },
 ];
 
 export default teams;
