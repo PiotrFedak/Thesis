@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import HeroMap from './HeroMap';
-import TeamHero from './TeamHero';
 import NBAVerse from '../Images/NBAVerse.png';
-import PlayerHero from './PlayerHero';
 
 const Hero = () => {
   return (
@@ -44,12 +41,6 @@ const Hero = () => {
             className="w-[80%] h-auto rounded-lg shadow-md"
           />
         </div>
-      </div>
-
-      <div className="w-full">
-        <HeroMap />
-        <TeamHero />
-        <PlayerHero />
       </div>
     </div>
   );

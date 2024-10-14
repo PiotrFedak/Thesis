@@ -20,7 +20,7 @@ const TeamHero = () => {
   return (
     <div
       name="Team hero"
-      className="w-full min-h-screen flex flex-col items-center py-8"
+      className="py-8 w-full min-h-screen flex flex-col items-center"
     >
       <h2 className="text-3xl text-center uppercase">Teams</h2>
       <h3 className="text-6xl font-bold text-center py-6">
@@ -31,7 +31,7 @@ const TeamHero = () => {
         about them.
       </p>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-20 border-x px-4">
+      <div className="gap-20 flex flex-col md:flex-row items-center justify-center border-x px-4">
         <div className="card w-96 flex flex-col items-center shadow-lg rounded-lg">
           <figure>
             <img
@@ -44,7 +44,7 @@ const TeamHero = () => {
             <div className="flex justify-center w-full">
               <h2 className="card-title text-center">{name}</h2>
             </div>
-            <p className="flex-grow text-center max-h-24 overflow-hidden text-ellipsis">
+            <p className="max-h-24 flex-grow text-center overflow-hidden text-ellipsis">
               {description}
             </p>
             <div className="flex justify-center gap-4 mt-4">

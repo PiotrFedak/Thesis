@@ -14,7 +14,7 @@ const PlayerHero = () => {
         </p>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-16 w-full max-w-[1240px] mx-auto mb-24">
+      <div className="mb-24 mt-12 grid grid-cols-1 md:grid-cols-3 gap-16 w-full max-w-[1240px] mx-auto">
         <div className="card w-96 shadow-xl flex flex-col justify-between mx-auto">
           <div className="card-body">
             <h2 className="card-title">Luka Dončić</h2>
@@ -33,13 +33,13 @@ const PlayerHero = () => {
           </figure>
         </div>
 
-        <div className="card w-96 shadow-xl flex flex-col justify-between mx-auto">
+        <div className="justify-between card w-96 shadow-xl flex flex-col mx-auto">
           <div className="card-body">
             <h2 className="card-title">Kevin Durant</h2>
             <p>
               NBA champion and scoring legend currently with the Phoenix Suns.
             </p>
-            <div className="card-actions justify-end">
+            <div className="justify-end card-actions">
               <Link to="/Players" className="btn btn-primary">
                 See More
               </Link>
@@ -54,7 +54,7 @@ const PlayerHero = () => {
           </figure>
         </div>
 
-        <div className="card w-96 shadow-xl flex flex-col justify-between mx-auto">
+        <div className="card justify-between w-96 shadow-xl flex flex-col mx-auto">
           <div className="card-body">
             <h2 className="card-title">Jaylen Brown</h2>
             <p>
