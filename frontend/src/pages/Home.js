@@ -11,7 +11,9 @@ const Home = () => {
   return (
     <div className="overflow-hidden text-custom-black dark:text-white dark:bg-custom-black bg-custom-white z-10">
       <Navbar />
-      <Hero />
+      <div className="mt-24 md:mt-14">
+        <Hero />
+      </div>
       <HeroMap />
       <TeamHero />
       <PlayerHero />

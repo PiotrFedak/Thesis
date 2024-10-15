@@ -46,7 +46,7 @@ const Players = () => {
   return (
     <div className="h-screen overflow-hidden text-custom-black dark:text-white dark:bg-custom-black bg-white relative z-10">
       <Navbar />
-      <div className="p-4 flex flex-col items-center">
+      <div className="p-4 flex flex-col items-center mt-32">
         <div className="w-full max-w-lg">
           <h1 className="text-2xl font-semibold mb-4 text-center">
             Search Players

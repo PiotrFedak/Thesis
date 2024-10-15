@@ -4,7 +4,7 @@ import NBAVerse from '../Images/NBAVerse.png';
 
 const Hero = () => {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full mt-12">
       <div className="flex flex-col lg:flex-row w-full h-screen">
         <div className="flex flex-col justify-center items-start w-full lg:w-1/2 p-10 lg:p-20">
           <h1 className="text-5xl lg:text-8xl font-bold mb-6">

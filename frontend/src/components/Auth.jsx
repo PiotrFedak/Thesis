@@ -12,7 +12,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:pl-36">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:pl-36 mt-36">
       <div className="w-full md:w-2/3 flex items-center justify-center order-2 md:order-1 mb-10 ml-16">
         <div className="w-full max-w-lg">
           <h1 className="text-4xl font-bold mb-6 text-center">

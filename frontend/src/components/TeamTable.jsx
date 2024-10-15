@@ -66,7 +66,7 @@ const TeamTable = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto mx-32">
+      <div className="overflow-x-auto mx-32 mt-36">
         <table className="table w-full table-fixed">
           {' '}
           <thead>

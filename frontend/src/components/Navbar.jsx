@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   IoCloseCircleOutline,
   IoMenu,
@@ -9,29 +9,36 @@ import Switcher from '../components/comon/Switcher';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const location = useLocation();
 
   const handleNavChange = () => {
     setNav(!nav);
   };
 
+  const getLinkClass = (path) => {
+    return location.pathname === path
+      ? 'p-4 text-custom-blue border-b-2 border-custom-blue dark:border-custom-red dark:text-custom-red'
+      : 'p-4';
+  };
+
   return (
-    <div className="my-4 mx-12 rounded-lg relative z-50">
-      <div className="flex justify-between max-w-[1340px] mx-auto px-3 items-center h-28">
+    <div className="fixed top-0 w-full bg-custom-white dark:bg-custom-black shadow-md z-50">
+      <div className="flex justify-between items-center max-w-[1340px] mx-auto px-6 h-28">
         <div className="flex items-center">
           <IoBasketballOutline size={60} color="#C9082A" />
+          <h1 className="text-3xl font-bold text-[#2c51b7] ml-4">NBAVerse.</h1>
         </div>
-        <h1 className="w-full text-3xl font-bold text-[#2c51b7]">NBAVerse.</h1>
         <ul className="hidden md:flex items-center">
-          <li className="p-4">
+          <li className={getLinkClass('/')}>
             <Link to="/">Home</Link>
           </li>
-          <li className="p-4">
+          <li className={getLinkClass('/Map')}>
             <Link to="/Map">Map</Link>
           </li>
-          <li className="p-4">
+          <li className={getLinkClass('/Teams')}>
             <Link to="/Teams">Teams</Link>
           </li>
-          <li className="p-4">
+          <li className={getLinkClass('/Players')}>
             <Link to="/Players">Players</Link>
           </li>
           <li className="pt-8 pl-4">
@@ -57,14 +64,17 @@ const Navbar = () => {
         <h1 className="w-full text-3xl font-bold text-[#2c51b7] m-4">
           NBAVerse.
         </h1>
-        <li className="p-4 border-b border-gray-600">
+        <li className={getLinkClass('/')}>
           <Link to="/">Home</Link>
         </li>
-        <li className="p-4 border-b border-gray-600">
+        <li className={getLinkClass('/Map')}>
           <Link to="/Map">Map</Link>
         </li>
-        <li className="p-4 border-b border-gray-600">
+        <li className={getLinkClass('/Teams')}>
           <Link to="/Teams">Teams</Link>
+        </li>
+        <li className={getLinkClass('/Players')}>
+          <Link to="/Players">Players</Link>
         </li>
         <li className="absolute top-8 right-28">
           <Switcher />
