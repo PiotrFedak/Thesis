@@ -17,7 +17,10 @@ const HeroMap = () => {
         <div className="text-center lg:text-left lg:w-1/2 flex flex-col justify-center py-4 lg:py-8">
           <p className="text-2xl">Map</p>
           <h1 className="py-3 text-5xl md:text-7xl font-bold">
-            <span className="text-custom-red">NBAVerse</span> Map Page
+            <span className="text-custom-blue dark:text-custom-red">
+              NBAVerse
+            </span>{' '}
+            Map Page
           </h1>
           <p className="text-xl mt-2 mb-2">
             Interactive map displaying the locations of NBA clubs for easy
@@ -26,7 +29,7 @@ const HeroMap = () => {
           <div className="py-4">
             <Link
               to="/Map"
-              className="px-8 py-2 text-xl font-semibold bg-custom-blue text-white border-4 border-custom-blue rounded-md hover:bg-white hover:text-custom-blue transition-colors"
+              className="px-8 py-2 text-xl font-semibold bg-custom-blue text-white border-4 border-custom-blue rounded-md hover:bg-white hover:text-custom-blue dark:hover:text-custom-white transition-colors dark:hover:bg-custom-black"
             >
               Go to Map
             </Link>

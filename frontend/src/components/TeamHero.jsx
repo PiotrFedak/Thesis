@@ -31,7 +31,7 @@ const TeamHero = () => {
         about them.
       </p>
 
-      <div className="gap-20 flex flex-col md:flex-row items-center justify-center border-x px-4">
+      <div className="gap-20 flex flex-col md:flex-row items-center justify-center px-4">
         <div className="card w-96 flex flex-col items-center shadow-lg rounded-lg">
           <figure>
             <img

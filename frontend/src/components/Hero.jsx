@@ -8,25 +8,28 @@ const Hero = () => {
       <div className="flex flex-col lg:flex-row w-full h-screen">
         <div className="flex flex-col justify-center items-start w-full lg:w-1/2 p-10 lg:p-20">
           <h1 className="text-5xl lg:text-8xl font-bold mb-6">
-            Welcome to <span className="text-custom-blue">NBAVerse</span>
+            Welcome to{' '}
+            <span className="text-custom-blue dark:text-custom-red">
+              NBAVerse
+            </span>
           </h1>
 
-          <p className="text-xl lg:text-2xl text-gray-700 mb-10">
+          <p className="text-xl lg:text-2xl mb-10">
             Explore the NBAVerse with a map of NBA clubs, team tables, player
             search bar, and live statistics.
           </p>
           <Link
             to="/Auth"
-            className="px-10 py-4 text-xl font-semibold bg-custom-blue text-white border-4 border-custom-blue rounded-md hover:bg-white hover:text-custom-blue transition-colors"
+            className="px-10 py-4 text-xl font-semibold bg-custom-blue text-white border-4 border-custom-blue rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
           >
             Get Started
           </Link>
           <div className="mt-4">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm">
               Already got an account?{' '}
               <Link
                 to="/Auth"
-                className="text-custom-blue underline hover:text-custom-red"
+                className="text-custom-blue underline hover:text-custom-red text-base"
               >
                 Log in
               </Link>

@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="footer p-10 dark:bg-custom-black bg-custom-white flex flex-col md:flex-row justify-between">
       <aside className="flex items-center space-x-4 mb-6 md:mb-0">
         <IoBasketballOutline size={60} color="#C9082A" />
-        <div>
+        <div id="footer">
           <p className="font-head text-2xl">NBAVerse.</p>
           <p>Piotr Fedak Thesis</p>
           <p className="font-body">

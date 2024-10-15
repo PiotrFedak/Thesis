@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="my-4 mx-12 border-2 rounded-lg border-gray-500 relative z-50">
+    <div className="my-4 mx-12 rounded-lg relative z-50">
       <div className="flex justify-between max-w-[1340px] mx-auto px-3 items-center h-28">
         <div className="flex items-center">
           <IoBasketballOutline size={60} color="#C9082A" />

@@ -5,6 +5,7 @@ import Footer from '../layouts/Footer';
 import PlayerHero from '../components/PlayerHero';
 import HeroMap from '../components/HeroMap';
 import TeamHero from '../components/TeamHero';
+import ScrollToTopButton from '../components/comon/ScrollToTopButton';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <HeroMap />
       <TeamHero />
       <PlayerHero />
+      <ScrollToTopButton />
       <Footer />
     </div>
   );
