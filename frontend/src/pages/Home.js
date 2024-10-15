@@ -6,6 +6,9 @@ import PlayerHero from '../components/PlayerHero';
 import HeroMap from '../components/HeroMap';
 import TeamHero from '../components/TeamHero';
 import ScrollToTopButton from '../components/comon/ScrollToTopButton';
+import BasketballBlock from '../layouts/BasketballBlock';
+import DottedBackground from '../layouts/DottedBackground';
+import FloatingBubbles from '../layouts/FloatingBubbles';
 
 const Home = () => {
   return (
@@ -15,9 +18,12 @@ const Home = () => {
         <Hero />
       </div>
       <HeroMap />
+      <DottedBackground />
       <TeamHero />
       <PlayerHero />
+      <BasketballBlock />
       <ScrollToTopButton />
+      <FloatingBubbles />
       <Footer />
     </div>
   );

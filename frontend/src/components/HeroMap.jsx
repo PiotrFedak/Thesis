@@ -15,7 +15,6 @@ const HeroMap = () => {
         </div>
 
         <div className="text-center lg:text-left lg:w-1/2 flex flex-col justify-center py-4 lg:py-8">
-          <p className="text-2xl">Map</p>
           <h1 className="py-3 text-5xl md:text-7xl font-bold">
             <span className="text-custom-blue dark:text-custom-red">
               NBAVerse
