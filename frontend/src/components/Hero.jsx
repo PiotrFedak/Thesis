@@ -21,7 +21,7 @@ const Hero = () => {
           </p>
           <Link
             to="/Auth"
-            className="px-10 py-4 text-xl font-semibold bg-custom-blue text-white border-4 border-custom-blue rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
+            className="px-10 py-4 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
           >
             Get Started
           </Link>
@@ -30,7 +30,7 @@ const Hero = () => {
               Already got an account?{' '}
               <Link
                 to="/Auth"
-                className="text-custom-blue underline hover:text-custom-red text-base"
+                className="text-custom-blue dark:text-custom-red underline hover:text-custom-red text-base"
               >
                 Log in
               </Link>

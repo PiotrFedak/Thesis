@@ -21,14 +21,14 @@ const HeroMap = () => {
             </span>{' '}
             Map Page
           </h1>
-          <p className="text-xl mt-2 mb-2">
+          <p className="text-2xl mt-2 mb-2">
             Interactive map displaying the locations of NBA clubs for easy
             navigation.
           </p>
           <div className="py-4">
             <Link
               to="/Map"
-              className="px-8 py-2 text-xl font-semibold bg-custom-blue text-white border-4 border-custom-blue rounded-md hover:bg-white hover:text-custom-blue dark:hover:text-custom-white transition-colors dark:hover:bg-custom-black"
+              className="px-8 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-4 border-custom-blue dark:border-custom-red rounded-md hover:bg-white hover:text-custom-blue dark:hover:text-custom-white transition-colors dark:hover:bg-custom-black"
             >
               Go to Map
             </Link>

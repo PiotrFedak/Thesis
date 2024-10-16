@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import ClearButton from '../components/comon/ClearButton';
-import LoadingSpinner from '../components/comon/LoadingSpinner';
+import ClearButton from '../components/common/ClearButton';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 import { fetchPlayers } from '../services/ApiPlayers';
 import BasketBlue from '../Images/BasketBlue.svg';
 import BasketRed from '../Images/BasketRed.svg';
@@ -46,10 +46,10 @@ const Players = () => {
   };
 
   return (
-    <div className="relative h-screen overflow-hidden text-custom-black dark:text-white dark:bg-custom-black bg-white">
+    <div className="relative h-screen overflow-y-hidden text-custom-black dark:text-white dark:bg-custom-black bg-white">
       <Navbar />
 
-      <div className="absolute left-0 top-5 w-1/4 h-full pointer-events-none opacity-60 hidden 2xl:block">
+      <div className="absolute left-0 top-5 w-1/4 h-full pointer-events-none opacity-80 hidden 2xl:block">
         <img
           src={BasketBlue}
           alt="Basketball Background"

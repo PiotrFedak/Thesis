@@ -20,6 +20,8 @@ module.exports = {
         'custom-white': '#f0f0f0',
         'custom-blue': '#17408B',
         'custom-red': '#C9082A',
+        'custom-RedHue': '#dd0930',
+        'custom-BlueHue': '#1e54b8',
       },
       fontFamily: {
         head: 'Impact',

@@ -5,7 +5,7 @@ import Footer from '../layouts/Footer';
 import PlayerHero from '../components/PlayerHero';
 import HeroMap from '../components/HeroMap';
 import TeamHero from '../components/TeamHero';
-import ScrollToTopButton from '../components/comon/ScrollToTopButton';
+import ScrollToTopButton from '../components/common/ScrollToTopButton';
 import DottedBackground from '../layouts/DottedBackground';
 import FloatingBubbles from '../layouts/FloatingBubbles';
 

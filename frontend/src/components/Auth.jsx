@@ -12,9 +12,9 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:pl-36 mt-36">
-      <div className="w-full md:w-2/3 flex items-center justify-center order-2 md:order-1 mb-10 ml-16">
-        <div className="w-full max-w-lg">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 mt-36">
+      <div className="w-full md:w-2/3 flex items-center justify-center mb-10 order-2 md:order-1">
+        <div className="w-full max-w-lg mx-auto">
           <h1 className="text-4xl font-bold mb-6 text-center">
             {isLogin ? 'Login now!' : 'Register now!'}
           </h1>
@@ -26,7 +26,7 @@ const Auth = () => {
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-60 order-1 md:order-2 md:mr-8 md:pr-56">
+      <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-60 order-1 md:order-2 md:mr-8">
         <div className="w-full max-w-md space-y-16">
           <div className="chat chat-start">
             <div className="chat-image avatar">
