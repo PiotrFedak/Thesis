@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import ClearButton from '../components/comon/ClearButton';
-import LoadingSpinner from '../components/comon/LoadingSpinner';
+import ClearButton from '../components/common/ClearButton';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 import { fetchPlayers } from '../services/ApiPlayers';
+import BasketBlue from '../Images/BasketBlue.svg';
+import BasketRed from '../Images/BasketRed.svg';
 
 const Players = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -44,9 +46,23 @@ const Players = () => {
   };
 
   return (
-    <div className="h-screen overflow-hidden text-custom-black dark:text-white dark:bg-custom-black bg-white relative z-10">
+    <div className="relative h-screen overflow-y-hidden text-custom-black dark:text-white dark:bg-custom-black bg-white">
       <Navbar />
-      <div className="p-4 flex flex-col items-center">
+
+      <div className="absolute left-0 top-5 w-1/4 h-full pointer-events-none opacity-80 hidden 2xl:block">
+        <img
+          src={BasketBlue}
+          alt="Basketball Background"
+          className="dark:hidden w-full h-full object-cover"
+        />
+        <img
+          src={BasketRed}
+          alt="Basketball Background"
+          className="hidden dark:block w-full h-full object-cover"
+        />
+      </div>
+
+      <div className="relative z-10 p-4 flex flex-col items-center mt-32">
         <div className="w-full max-w-lg">
           <h1 className="text-2xl font-semibold mb-4 text-center">
             Search Players

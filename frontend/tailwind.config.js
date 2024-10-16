@@ -12,13 +12,16 @@ module.exports = {
         tablet: '768px',
         laptop: '1024px',
         'large-laptop': '1440px',
+        '2xl': '1888px',
         '4k': '2560px',
       },
       colors: {
         'custom-black': '#0D1117',
         'custom-white': '#f0f0f0',
         'custom-blue': '#17408B',
-        'custom-red': 'C9082A',
+        'custom-red': '#C9082A',
+        'custom-RedHue': '#dd0930',
+        'custom-BlueHue': '#1e54b8',
       },
       fontFamily: {
         head: 'Impact',

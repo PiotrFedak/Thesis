@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaGithub } from 'react-icons/fa';
-import Toggle from './comon/Toggle';
+import Toggle from './common/Toggle';
 
 const Register = ({ toggleForm }) => {
   return (

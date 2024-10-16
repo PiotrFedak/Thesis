@@ -1,31 +1,38 @@
 import React from 'react';
-import NBAVerse from '../Images/NBAVerse.png';
 import { Link } from 'react-router-dom';
+import MapHero from '../Images/MapHero.png';
 
 const HeroMap = () => {
   return (
-    <div name="home" className="w-full h-screen flex flex-col justify-between">
-      <div className="grid md:grid-cols-2 max-w-[1240px] m-auto">
-        <div className="flex flex-col justify-center md:items-start w-full px-2 py-8">
-          <p className="text-2xl">Map of NBA Clubs</p>
+    <div className="hero min-h-screen">
+      <div className="m-0 px-2 lg:px-12 hero-content flex-col lg:flex-row-reverse w-full max-w-full">
+        <div className="lg:w-1/2 lg:justify-end flex justify-center w-full">
+          <img
+            src={MapHero}
+            alt="Map of NBA Clubs"
+            className="w-full h-auto sm:scale-75 md:scale-75 lg:scale-90 xl:scale-100 2xl:scale-125 sm:mr-2 md:mr-4 lg:mr-6 xl:mr-8 2xl:mr-12"
+          />
+        </div>
+
+        <div className="text-center lg:text-left lg:w-1/2 flex flex-col justify-center py-4 lg:py-8">
           <h1 className="py-3 text-5xl md:text-7xl font-bold">
-            NBAVerse Map Page
+            <span className="text-custom-blue dark:text-custom-red">
+              NBAVerse
+            </span>{' '}
+            Map Page
           </h1>
-          <p className="text-2xl mr-2 mt-2">
+          <p className="text-2xl mt-2 mb-2">
             Interactive map displaying the locations of NBA clubs for easy
             navigation.
           </p>
-          <div className="py-4 px-6 sm:w-[60%] my-6 md:py-2 md:px-0">
+          <div className="py-4">
             <Link
               to="/Map"
-              className="px-10 py-4 text-xl font-semibold bg-custom-blue text-white border-4 border-custom-blue rounded-md hover:bg-white hover:text-custom-blue transition-colors"
+              className="px-8 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-4 border-custom-blue dark:border-custom-red rounded-md hover:bg-white hover:text-custom-blue dark:hover:text-custom-white transition-colors dark:hover:bg-custom-black"
             >
               Go to Map
             </Link>
           </div>
-        </div>
-        <div>
-          <img className="w-full" src={NBAVerse} alt="/" />
         </div>
       </div>
     </div>

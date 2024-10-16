@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Pagination from './comon/Pagination';
+import Pagination from './common/Pagination';
 import { FaSort, FaSortUp, FaSortDown } from 'react-icons/fa';
-import useSort from './comon/useSort';
+import useSort from './common/useSort';
 
 const TeamTable = () => {
   const [teamData, setTeamData] = useState([]);
@@ -65,34 +65,33 @@ const TeamTable = () => {
   }
 
   return (
-    <div>
-      <div className="overflow-x-auto mx-32">
-        <table className="table w-full table-fixed">
-          {' '}
+    <div className="mx-4 sm:mx-8 lg:mx-26 flex flex-col items-center mt-36">
+      <div className="overflow-x-auto w-full">
+        <table className="text-left table-auto w-full">
           <thead>
-            <tr>
-              <th className="w-1/12 text-custom-black dark:text-white">#</th>
+            <tr className="bg-gray-200 dark:bg-gray-700">
+              <th className="px-4 py-2 text-custom-black dark:text-white">#</th>
               <th
                 onClick={() => requestSort('full_name')}
-                className="cursor-pointer w-3/12 text-custom-black dark:text-white"
+                className="px-4 text-custom-black dark:text-white py-2 cursor-pointer"
               >
                 Team {getSortIcon('full_name')}
               </th>
               <th
                 onClick={() => requestSort('city')}
-                className="cursor-pointer w-3/12 text-custom-black dark:text-white"
+                className="px-4 py-2 cursor-pointer text-custom-black dark:text-white"
               >
                 City {getSortIcon('city')}
               </th>
               <th
                 onClick={() => requestSort('conference')}
-                className="cursor-pointer w-3/12 text-custom-black dark:text-white"
+                className="px-4 py-2 cursor-pointer text-custom-black dark:text-white"
               >
                 Conference {getSortIcon('conference')}
               </th>
               <th
                 onClick={() => requestSort('division')}
-                className="cursor-pointer w-3/12 text-custom-black dark:text-white"
+                className="px-4 py-2 cursor-pointer text-custom-black dark:text-white"
               >
                 Division {getSortIcon('division')}
               </th>
@@ -100,12 +99,12 @@ const TeamTable = () => {
           </thead>
           <tbody>
             {currentTeams.map((team, index) => (
-              <tr key={team.id}>
-                <td>{indexOfFirstTeam + index + 1}</td>
-                <td>{team.full_name}</td>
-                <td>{team.city}</td>
-                <td>{team.conference}</td>
-                <td>{team.division}</td>
+              <tr key={team.id} className="border-b dark:border-gray-600">
+                <td className="px-4 py-2">{indexOfFirstTeam + index + 1}</td>
+                <td className="px-4 py-2">{team.full_name}</td>
+                <td className="px-4 py-2">{team.city}</td>
+                <td className="px-4 py-2">{team.conference}</td>
+                <td className="px-4 py-2">{team.division}</td>
               </tr>
             ))}
           </tbody>

@@ -9,7 +9,7 @@ const Map = () => {
   const zoom = 5;
 
   return (
-    <div className="flex justify-center items-center h-full z-10">
+    <div className="flex justify-center items-center h-full z-10 mt-28">
       <div className="w-11/12 h-5/6 mt-1 mb-36">
         <MapContainer
           center={center}
