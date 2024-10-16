@@ -37,7 +37,7 @@ const FloatingBubbles = () => {
   const yMovement = useTransform(mouseY, [0, window.innerHeight], [-20, 20]);
 
   return (
-    <div className="pointer-events-none hidden md:block">
+    <div className="pointer-events-none md:block">
       {[...Array(8)].map((_, index) => (
         <motion.div
           key={index}

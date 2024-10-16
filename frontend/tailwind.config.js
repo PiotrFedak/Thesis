@@ -12,6 +12,7 @@ module.exports = {
         tablet: '768px',
         laptop: '1024px',
         'large-laptop': '1440px',
+        '2xl': '1888px',
         '4k': '2560px',
       },
       colors: {

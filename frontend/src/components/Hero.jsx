@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NBAVerse from '../Images/NBAVerse.png';
+import HeroRed from '../Images/HeroRed.svg';
+import HeroBlue from '../Images/HeroBlue.svg';
 
 const Hero = () => {
   return (
@@ -40,8 +41,13 @@ const Hero = () => {
         <div className="lg:flex items-center justify-center w-full lg:w-1/2">
           <img
             alt="NBAVerse"
-            src={NBAVerse}
-            className="w-[80%] h-auto rounded-lg shadow-md"
+            src={HeroBlue}
+            className="w-[80%] h-auto rounded-lg shadow-md dark:hidden"
+          />
+          <img
+            alt="NBAVerse Dark"
+            src={HeroRed}
+            className="w-[80%] h-auto rounded-lg shadow-md hidden dark:block"
           />
         </div>
       </div>
