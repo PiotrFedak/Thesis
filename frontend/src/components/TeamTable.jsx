@@ -3,12 +3,14 @@ import axios from 'axios';
 import Pagination from './common/Pagination';
 import { FaSort, FaSortUp, FaSortDown } from 'react-icons/fa';
 import useSort from './common/useSort';
+import { useTranslation } from 'react-i18next';
 
 const TeamTable = () => {
   const [teamData, setTeamData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const { t } = useTranslation();
   const teamsPerPage = 15;
 
   useEffect(() => {
@@ -75,25 +77,25 @@ const TeamTable = () => {
                 onClick={() => requestSort('full_name')}
                 className="px-4 text-custom-black dark:text-white py-2 cursor-pointer"
               >
-                Team {getSortIcon('full_name')}
+                {t('team')} {getSortIcon('full_name')}
               </th>
               <th
                 onClick={() => requestSort('city')}
                 className="px-4 py-2 cursor-pointer text-custom-black dark:text-white"
               >
-                City {getSortIcon('city')}
+                {t('city')} {getSortIcon('city')}
               </th>
               <th
                 onClick={() => requestSort('conference')}
                 className="px-4 py-2 cursor-pointer text-custom-black dark:text-white"
               >
-                Conference {getSortIcon('conference')}
+                {t('conference')} {getSortIcon('conference')}
               </th>
               <th
                 onClick={() => requestSort('division')}
                 className="px-4 py-2 cursor-pointer text-custom-black dark:text-white"
               >
-                Division {getSortIcon('division')}
+                {t('division')} {getSortIcon('division')}
               </th>
             </tr>
           </thead>

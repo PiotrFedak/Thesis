@@ -5,8 +5,14 @@ import LoadingSpinner from '../components/common/LoadingSpinner';
 import { fetchPlayers } from '../services/ApiPlayers';
 import BasketBlue from '../Images/BasketBlue.svg';
 import BasketRed from '../Images/BasketRed.svg';
+import playerSearchTranslation from '../translations/playerSearchTranslatio';
+import { useTranslation } from 'react-i18next';
 
 const Players = () => {
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+  const translations = playerSearchTranslation[lang];
+
   const [searchTerm, setSearchTerm] = useState('');
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -30,7 +36,7 @@ const Players = () => {
       const playerData = await fetchPlayers(query);
       setPlayers(playerData);
     } catch (error) {
-      setError('Failed to fetch players.');
+      setError(translations.failedToFetchPlayers || 'Failed to fetch players.');
     } finally {
       setLoading(false);
     }
@@ -65,14 +71,14 @@ const Players = () => {
       <div className="relative z-10 p-4 flex flex-col items-center mt-32">
         <div className="w-full max-w-lg">
           <h1 className="text-2xl font-semibold mb-4 text-center">
-            Search Players
+            {translations.searchTitle}
           </h1>
 
           <input
             type="text"
             value={searchTerm}
             onChange={handleSearchChange}
-            placeholder="Type player name..."
+            placeholder={translations.searchPlaceholder}
             className="input input-bordered w-full mb-4 dark:bg-custom-black bg-white dark:border-gray-600 border-gray-900"
           />
 
@@ -99,23 +105,53 @@ const Players = () => {
                 <h2 className="text-xl font-semibold mb-2">
                   {player.first_name} {player.last_name}
                 </h2>
-                <p>Position: {player.position || 'N/A'}</p>
-                <p>Height: {player.height_feet || 'N/A'}&#39; </p>
-                <p>Weight: {player.weight || 'N/A'} lbs</p>
-                <p>Jersey Number: {player.jersey_number || 'N/A'}</p>
-                <p>College: {player.college || 'N/A'}</p>
-                <p>Country: {player.country || 'N/A'}</p>
-                <p>Draft Year: {player.draft_year || 'N/A'}</p>
-                <p>Draft Round: {player.draft_round || 'N/A'}</p>
-                <p>Draft Number: {player.draft_number || 'N/A'}</p>
+                <p>
+                  {translations.position}: {player.position || 'N/A'}
+                </p>
+                <p>
+                  {translations.height}: {player.height_feet || 'N/A'}&#39;{' '}
+                </p>
+                <p>
+                  {translations.weight}: {player.weight || 'N/A'} lbs
+                </p>
+                <p>
+                  {translations.jerseyNumber}: {player.jersey_number || 'N/A'}
+                </p>
+                <p>
+                  {translations.college}: {player.college || 'N/A'}
+                </p>
+                <p>
+                  {translations.country}: {player.country || 'N/A'}
+                </p>
+                <p>
+                  {translations.draftYear}: {player.draft_year || 'N/A'}
+                </p>
+                <p>
+                  {translations.draftRound}: {player.draft_round || 'N/A'}
+                </p>
+                <p>
+                  {translations.draftNumber}: {player.draft_number || 'N/A'}
+                </p>
                 <div className="mt-2">
-                  <h3 className="text-lg font-medium">Team Information:</h3>
-                  <p>Team: {player.team ? player.team.full_name : 'No team'}</p>
-                  <p>City: {player.team ? player.team.city : 'N/A'}</p>
+                  <h3 className="text-lg font-medium">
+                    {translations.teamInfoTitle}
+                  </h3>
                   <p>
-                    Conference: {player.team ? player.team.conference : 'N/A'}
+                    {translations.team}:{' '}
+                    {player.team ? player.team.full_name : translations.noTeam}
                   </p>
-                  <p>Division: {player.team ? player.team.division : 'N/A'}</p>
+                  <p>
+                    {translations.city}:{' '}
+                    {player.team ? player.team.city : 'N/A'}
+                  </p>
+                  <p>
+                    {translations.conference}:{' '}
+                    {player.team ? player.team.conference : 'N/A'}
+                  </p>
+                  <p>
+                    {translations.division}:{' '}
+                    {player.team ? player.team.division : 'N/A'}
+                  </p>
                 </div>
               </li>
             ))}
@@ -123,7 +159,9 @@ const Players = () => {
         )}
 
         {!loading && players.length === 0 && searchTerm && (
-          <p>No players found for &quot;{searchTerm}&quot;.</p>
+          <p>
+            {translations.noPlayersFound} &quot;{searchTerm}&quot;.
+          </p>
         )}
       </div>
     </div>

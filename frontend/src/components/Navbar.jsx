@@ -6,13 +6,20 @@ import {
   IoBasketballOutline,
 } from 'react-icons/io5';
 import Switcher from './common/Switcher';
+import { useTranslation } from 'react-i18next';
+import Flag from 'react-flagkit';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const location = useLocation();
+  const { i18n } = useTranslation();
 
   const handleNavChange = () => {
     setNav(!nav);
+  };
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
   };
 
   const getLinkClass = (path) => {
@@ -32,23 +39,36 @@ const Navbar = () => {
             NBAVerse.
           </h1>
         </div>
-        <ul className="hidden md:flex items-center">
+
+        <ul className="hidden md:flex items-center justify-center space-x-3 flex-grow ml-4">
           <li className={getLinkClass('/')}>
-            <Link to="/">Home</Link>
+            <Link to="/">{i18n.t('home')}</Link>
           </li>
           <li className={getLinkClass('/Map')}>
-            <Link to="/Map">Map</Link>
+            <Link to="/Map">{i18n.t('map')}</Link>
           </li>
           <li className={getLinkClass('/Teams')}>
-            <Link to="/Teams">Teams</Link>
+            <Link to="/Teams">{i18n.t('teams')}</Link>
           </li>
           <li className={getLinkClass('/Players')}>
-            <Link to="/Players">Players</Link>
-          </li>
-          <li className="pt-8 pl-4">
-            <Switcher />
+            <Link to="/Players">{i18n.t('players')}</Link>
           </li>
         </ul>
+
+        <div className="flex items-center justify-end space-x-4 lg:w-1/6">
+          <div className="flex flex-col items-center space-y-3 lg:mr-0 mr-2">
+            <button onClick={() => changeLanguage('en')}>
+              <Flag country="US" size={32} />
+            </button>
+            <button onClick={() => changeLanguage('pl')}>
+              <Flag country="PL" size={32} />
+            </button>
+          </div>
+          <div className="pt-8 lg:pr-0 pr-8">
+            {' '}
+            <Switcher />
+          </div>
+        </div>
       </div>
 
       <div
@@ -69,16 +89,16 @@ const Navbar = () => {
           NBAVerse.
         </h1>
         <li className={getLinkClass('/')}>
-          <Link to="/">Home</Link>
+          <Link to="/">{i18n.t('home')}</Link>
         </li>
         <li className={getLinkClass('/Map')}>
-          <Link to="/Map">Map</Link>
+          <Link to="/Map">{i18n.t('map')}</Link>
         </li>
         <li className={getLinkClass('/Teams')}>
-          <Link to="/Teams">Teams</Link>
+          <Link to="/Teams">{i18n.t('teams')}</Link>
         </li>
         <li className={getLinkClass('/Players')}>
-          <Link to="/Players">Players</Link>
+          <Link to="/Players">{i18n.t('players')}</Link>
         </li>
         <li className="absolute top-4 right-20">
           <Switcher />

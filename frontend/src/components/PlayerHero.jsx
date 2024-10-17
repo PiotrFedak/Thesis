@@ -1,7 +1,13 @@
 import React from 'react';
 import CustomButton from '../components/common/CustomButton';
+import PlayerHeroData from '../components/PlayerHeroData';
+import PlayerHeroDataPL from '../translations/PlayerHeroDataPL';
+import { useTranslation } from 'react-i18next';
 
 const PlayerHero = () => {
+  const { i18n, t } = useTranslation();
+  const playerData = i18n.language === 'pl' ? PlayerHeroDataPL : PlayerHeroData;
+
   return (
     <div className="w-full flex flex-col justify-between items-center py-16 px-8">
       <div className="text-right w-full max-w-[1240px]">
@@ -9,35 +15,15 @@ const PlayerHero = () => {
           <span className="dark:text-custom-red text-custom-blue">
             NBAVerse
           </span>{' '}
-          Players Page
+          {t('playersPage')}
         </h1>
         <p className="text-2xl max-w-md ml-auto mt-12">
-          Use the Players Search Bar to find detailed profiles of your favorite
-          NBA players.
+          {t('playersPageDescription')}
         </p>
       </div>
 
       <div className="mb-24 mt-12 grid grid-cols-1 md:grid-cols-3 gap-16 w-full max-w-[1240px] mx-auto">
-        {[
-          {
-            name: 'Luka Dončić',
-            description:
-              'Star player for the Dallas Mavericks known for his playmaking skills.',
-            image: '/Luka Doncic.webp',
-          },
-          {
-            name: 'Kevin Durant',
-            description:
-              'NBA champion and scoring legend currently with the Phoenix Suns.',
-            image: '/kevin durant.webp',
-          },
-          {
-            name: 'Jaylen Brown',
-            description:
-              'Boston Celtics star known for his athleticism and two-way play.',
-            image: '/Jaylen Brown.webp',
-          },
-        ].map((player, index) => (
+        {playerData.map((player, index) => (
           <div
             key={index}
             className="card w-96 shadow-xl flex flex-col justify-between mx-auto"
@@ -51,7 +37,7 @@ const PlayerHero = () => {
                   color="custom-red"
                   hoverColor="custom-blue"
                 >
-                  See More
+                  {t('seeMore')}
                 </CustomButton>
               </div>
             </div>
