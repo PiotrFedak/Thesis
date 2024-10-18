@@ -14,7 +14,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 mt-36">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 mt-12">
       <div className="w-full md:w-2/3 flex items-center justify-center mb-10 order-2 md:order-1">
         <div className="w-full max-w-lg mx-auto">
           <h1 className="text-4xl font-bold mb-6 text-center">
@@ -40,7 +40,9 @@ const Auth = () => {
               NBAVerse
               <time className="text-xs opacity-50">12:45</time>
             </div>
-            <div className="chat-bubble">{t('auth.nbaverseAccount')}</div>
+            <div className="chat-bubble dark:bg-slate-400 text-black bg-white">
+              {t('auth.nbaverseAccount')}
+            </div>
             <div className="chat-footer opacity-50">{t('auth.delivered')}</div>
           </div>
 
@@ -54,7 +56,9 @@ const Auth = () => {
               User
               <time className="text-xs opacity-50">12:46</time>
             </div>
-            <div className="chat-bubble">{t('auth.userReply')}</div>
+            <div className="chat-bubble dark:bg-slate-400 text-black bg-white">
+              {t('auth.userReply')}
+            </div>
             <div className="chat-footer opacity-50">
               {t('auth.seenAt')} 12:46
             </div>

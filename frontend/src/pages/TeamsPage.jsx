@@ -1,12 +1,16 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import TeamTable from '../components/TeamTable';
+import Footer from '../layouts/Footer';
 
 const TeamsPage = () => {
   return (
-    <div className="h-screen overflow-y-hidden text-custom-black dark:text-white dark:bg-custom-black bg-white relative z-10">
+    <div className="relative h-screen bg-white dark:bg-custom-black text-custom-black dark:text-white">
       <Navbar />
-      <TeamTable />
+      <div className="overflow-y-auto h-full mt-28">
+        <TeamTable />
+      </div>
+      <Footer />
     </div>
   );
 };
