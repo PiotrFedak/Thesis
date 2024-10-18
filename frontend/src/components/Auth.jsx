@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Login from './Login';
 import Register from './Register';
 import NBAVerseImg from '../Images/NBAVerse.png';
@@ -6,6 +7,7 @@ import UserImg from '../Images/UserImg.png';
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const { t } = useTranslation();
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -16,7 +18,7 @@ const Auth = () => {
       <div className="w-full md:w-2/3 flex items-center justify-center mb-10 order-2 md:order-1">
         <div className="w-full max-w-lg mx-auto">
           <h1 className="text-4xl font-bold mb-6 text-center">
-            {isLogin ? 'Login now!' : 'Register now!'}
+            {isLogin ? t('auth.loginNow') : t('auth.registerNow')}
           </h1>
           {isLogin ? (
             <Login toggleForm={toggleForm} />
@@ -38,11 +40,8 @@ const Auth = () => {
               NBAVerse
               <time className="text-xs opacity-50">12:45</time>
             </div>
-            <div className="chat-bubble">
-              Zakładając konto na NBAVerse możesz dodawać swoje ulubione zespoły
-              i łatwo śledzić zmiany w NBA!
-            </div>
-            <div className="chat-footer opacity-50">Delivered</div>
+            <div className="chat-bubble">{t('auth.nbaverseAccount')}</div>
+            <div className="chat-footer opacity-50">{t('auth.delivered')}</div>
           </div>
 
           <div className="chat chat-end">
@@ -55,8 +54,10 @@ const Auth = () => {
               User
               <time className="text-xs opacity-50">12:46</time>
             </div>
-            <div className="chat-bubble">O naprawdę? Już zakładam konto!</div>
-            <div className="chat-footer opacity-50">Seen at 12:46</div>
+            <div className="chat-bubble">{t('auth.userReply')}</div>
+            <div className="chat-footer opacity-50">
+              {t('auth.seenAt')} 12:46
+            </div>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import router from './router.js';
 import { RouterProvider } from 'react-router-dom';
 import { ContextProvider } from './contexts/ContextProvider.js';
+import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

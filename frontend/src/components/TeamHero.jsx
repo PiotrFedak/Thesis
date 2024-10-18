@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import teams from './teamData';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import teamsEN from './teamData';
+import teamsPL from '../translations/teamDataPl';
 
 const TeamHero = () => {
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
+  const { i18n, t } = useTranslation();
+
+  const teams = i18n.language === 'pl' ? teamsPL : teamsEN;
 
   const nextTeam = () => {
     setCurrentTeamIndex((prevIndex) => (prevIndex + 1) % teams.length);
@@ -18,19 +23,13 @@ const TeamHero = () => {
   const { name, image, description, history } = teams[currentTeamIndex];
 
   return (
-    <div
-      name="Team hero"
-      className="py-8 w-full min-h-screen flex flex-col items-center"
-    >
-      <h2 className="text-3xl text-center uppercase">Teams</h2>
+    <div className="py-8 w-full min-h-screen flex flex-col items-center">
+      <h2 className="text-3xl text-center uppercase">{t('teams')}</h2>
       <h3 className="text-6xl font-bold text-center py-6">
         <span className="dark:text-custom-red text-custom-blue">NBAVerse</span>{' '}
-        Team Page
+        {t('teamPage')}
       </h3>
-      <p className="text-3xl text-center mb-12">
-        Here you can search for NBA teams you are looking for and learn more
-        about them.
-      </p>
+      <p className="text-3xl text-center mb-12">{t('teamPageDescription')}</p>
 
       <div className="gap-20 flex flex-col md:flex-row items-center justify-center px-4">
         <div className="card w-96 flex flex-col items-center shadow-2xl rounded-lg">
@@ -55,7 +54,7 @@ const TeamHero = () => {
                  hover:bg-custom-white dark:hover:bg-custom-black border-4 border-custom-blue 
                  dark:border-custom-red dark:hover:text-custom-white hover:text-custom-blue transition-colors"
               >
-                Previous
+                {t('previous')}
               </button>
               <div className="indicator">
                 <span className="indicator-item badge dark:bg-custom-red bg-custom-blue animate-bounce"></span>
@@ -63,7 +62,7 @@ const TeamHero = () => {
                   to="/Teams"
                   className="btn bg-custom-white text-custom-black border-2 hover:bg-custom-blue hover:text-custom-white dark:bg-custom-black dark:text-custom-white dark:border-custom-white dark:hover:bg-custom-red"
                 >
-                  Go to Teams Page
+                  {t('goToTeams')}
                 </Link>
               </div>
               <button
@@ -72,7 +71,7 @@ const TeamHero = () => {
                  hover:bg-custom-white dark:hover:bg-custom-black border-4 border-custom-blue 
                  dark:border-custom-red dark:hover:text-custom-white hover:text-custom-blue transition-colors"
               >
-                Next
+                {t('next')}
               </button>
             </div>
           </div>
