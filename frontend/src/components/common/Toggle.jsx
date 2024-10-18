@@ -5,7 +5,7 @@ const Toggle = ({ toggleForm, isLogin }) => {
   return (
     <div className="mt-4 text-center">
       {isLogin ? (
-        <p className="text-gray-500">
+        <p className="text-black dark:text-white">
           Don&#39;t have an account?{' '}
           <button
             type="button"

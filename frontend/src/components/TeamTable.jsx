@@ -67,7 +67,7 @@ const TeamTable = () => {
   }
 
   return (
-    <div className="mx-4 sm:mx-8 lg:mx-26 flex flex-col items-center mt-36">
+    <div className="mx-4 sm:mx-8 lg:mx-26 flex flex-col items-center mt-12">
       <div className="overflow-x-auto w-full">
         <table className="text-left table-auto w-full">
           <thead>

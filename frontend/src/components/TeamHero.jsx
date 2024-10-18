@@ -47,7 +47,7 @@ const TeamHero = () => {
             <p className="max-h-24 flex-grow text-center overflow-hidden text-ellipsis">
               {description}
             </p>
-            <div className="flex justify-center gap-4 mt-4">
+            <div className="flex justify-center gap-3 mt-4">
               <button
                 onClick={prevTeam}
                 className="btn px-4 py-2 font-semibold rounded-md text-white bg-custom-blue dark:bg-custom-red 

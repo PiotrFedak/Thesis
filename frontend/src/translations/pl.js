@@ -18,10 +18,10 @@ const pl = {
     teams: 'drużyny',
     teamPage: 'Drużyny',
     teamPageDescription:
-      'Tutaj możesz wyszukiwać drużyny NBA i dowiedzieć się więcej na ich temat.',
+      'Tutaj możesz wyszukać interesujące Cię drużyny NBA i dowiedzieć się o nich więcej.',
     previous: 'Poprzedni',
     next: 'Następny',
-    goToTeams: 'Przejdź do Strony Drużyn',
+    goToTeams: 'Przejdź do Drużyn',
 
     playersPage: 'Strona Graczy',
     playersPageDescription:

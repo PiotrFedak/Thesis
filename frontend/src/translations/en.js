@@ -12,10 +12,10 @@ const en = {
     goToMap: 'Go to Map',
     mapImageAlt: 'Map of NBA Clubs',
 
-    teams: 'Teams',
+    teams: 'teams',
     teamPage: 'Teams Page',
     teamPageDescription:
-      'Here you can search for NBA teams you are looking for and learn more about them.',
+      'Here you can search for NBA teams you are interested in and learn more about them.',
     previous: 'Previous',
     next: 'Next',
     goToTeams: 'Go to Teams Page',

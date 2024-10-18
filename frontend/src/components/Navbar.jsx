@@ -73,7 +73,7 @@ const Navbar = () => {
 
       <div
         onClick={handleNavChange}
-        className="block md:hidden z-50 absolute top-4 right-2"
+        className="block md:hidden z-50 absolute top-10 right-2"
       >
         {nav ? <IoCloseCircleOutline size={30} /> : <IoMenu size={30} />}
       </div>
@@ -100,7 +100,7 @@ const Navbar = () => {
         <li className={getLinkClass('/Players')}>
           <Link to="/Players">{i18n.t('players')}</Link>
         </li>
-        <li className="absolute top-4 right-20">
+        <li className="absolute top-10 right-16">
           <Switcher />
         </li>
       </ul>
