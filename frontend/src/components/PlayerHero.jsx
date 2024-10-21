@@ -31,7 +31,7 @@ const PlayerHero = () => {
             <div className="card-body">
               <h2 className="card-title">{player.name}</h2>
               <p>{player.description}</p>
-              <div className="card-actions justify-end">
+              <div className="card-actions justify-end mr-2 md:mr-0 mt-2 md:mt-0">
                 <CustomButton
                   to="/Players"
                   color="custom-red"
@@ -41,7 +41,7 @@ const PlayerHero = () => {
                 </CustomButton>
               </div>
             </div>
-            <figure>
+            <figure className="mr-12 md:mr-0">
               <img src={player.image} alt={player.name} className="w-full" />
             </figure>
           </div>

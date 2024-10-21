@@ -35,12 +35,15 @@ const Navbar = () => {
           <div className="dark:text-custom-red text-custom-blue">
             <IoBasketballOutline size={60} />
           </div>
-          <h1 className="text-3xl font-bold text-custom-blue dark:text-custom-red ml-4">
+          <h1 className="text-3xl font-bold text-custom-blue dark:text-custom-red ml-2 md:ml-4">
             NBAVerse.
           </h1>
         </div>
 
-        <ul className="hidden md:flex items-center justify-center space-x-3 flex-grow ml-4">
+        <ul
+          id="navbar"
+          className="hidden md:flex items-center justify-center space-x-3 flex-grow ml-4"
+        >
           <li className={getLinkClass('/')}>
             <Link to="/">{i18n.t('home')}</Link>
           </li>
@@ -57,14 +60,14 @@ const Navbar = () => {
 
         <div className="flex items-center justify-end space-x-4 lg:w-1/6">
           <div className="flex flex-col items-center space-y-3 lg:mr-0 mr-2">
-            <button onClick={() => changeLanguage('en')}>
+            <button id="flag-US" onClick={() => changeLanguage('en')}>
               <Flag country="US" size={32} />
             </button>
-            <button onClick={() => changeLanguage('pl')}>
+            <button id="flag-PL" onClick={() => changeLanguage('pl')}>
               <Flag country="PL" size={32} />
             </button>
           </div>
-          <div className="pt-8 lg:pr-0 pr-8">
+          <div id="dark-mode-switcher" className="pt-8 lg:pr-0 pr-8">
             {' '}
             <Switcher />
           </div>
