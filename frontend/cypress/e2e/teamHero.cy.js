@@ -24,13 +24,19 @@ describe('TeamHero Component Test', () => {
 
       cy.get('.timeline').within(() => {
         cy.get('.timeline-start').should('contain.text', '1980');
-        cy.get('.timeline-end').should('contain.text', 'Won their 7th NBA Championship');
+        cy.get('.timeline-end').should(
+          'contain.text',
+          'Won their 7th NBA Championship'
+        );
       });
 
       cy.get('#next-team').click();
       cy.get('.timeline').within(() => {
         cy.get('.timeline-start').should('contain.text', '1991');
-        cy.get('.timeline-end').should('contain.text', 'Won their first NBA Championship');
+        cy.get('.timeline-end').should(
+          'contain.text',
+          'Won their first NBA Championship'
+        );
       });
     });
   });
@@ -53,13 +59,19 @@ describe('TeamHero Component Test', () => {
 
       cy.get('.timeline').within(() => {
         cy.get('.timeline-start').should('contain.text', '1980');
-        cy.get('.timeline-end').should('contain.text', 'Zdobyli swoje 7. mistrzostwo NBA');
+        cy.get('.timeline-end').should(
+          'contain.text',
+          'Zdobyli swoje 7. mistrzostwo NBA'
+        );
       });
 
       cy.get('#next-team').click();
       cy.get('.timeline').within(() => {
         cy.get('.timeline-start').should('contain.text', '1991');
-        cy.get('.timeline-end').should('contain.text', 'Zdobyli swoje pierwsze mistrzostwo NBA');
+        cy.get('.timeline-end').should(
+          'contain.text',
+          'Zdobyli swoje pierwsze mistrzostwo NBA'
+        );
       });
     });
   });

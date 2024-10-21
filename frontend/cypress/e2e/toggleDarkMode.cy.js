@@ -5,4 +5,4 @@ describe('Site toggle between dark mode and light mode', () => {
     cy.get('#dark-mode-switcher').click();
     cy.get('body').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)');
   });
-})
+});
