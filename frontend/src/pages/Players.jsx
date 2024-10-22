@@ -7,7 +7,7 @@ import BasketBlue from '../Images/BasketBlue.svg';
 import BasketRed from '../Images/BasketRed.svg';
 import playerSearchTranslation from '../translations/playerSearchTranslatio';
 import { useTranslation } from 'react-i18next';
-import Breadcrumbs from '../components/common/Breadcrumbs';
+import BreadcrumbsPlayers from '../components/common/BreadcrumbsPlayers';
 
 const Players = () => {
   const { i18n } = useTranslation();
@@ -57,7 +57,7 @@ const Players = () => {
       <Navbar />
 
       <div>
-        <Breadcrumbs />
+        <BreadcrumbsPlayers />
       </div>
 
       <div className="absolute right-0 top-5 w-1/4 h-full pointer-events-none opacity-80 hidden 2xl:block">

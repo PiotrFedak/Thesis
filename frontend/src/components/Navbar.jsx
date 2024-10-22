@@ -110,6 +110,9 @@ const Navbar = () => {
         <li className={getLinkClass('/')}>
           <Link to="/">{i18n.t('home')}</Link>
         </li>
+        <li className={getLinkClass('/Auth')}>
+          <Link to="/Auth">{i18n.t('login')}</Link>
+        </li>
         <li className={getLinkClass('/Map')}>
           <Link to="/Map">{i18n.t('map')}</Link>
         </li>
@@ -119,9 +122,7 @@ const Navbar = () => {
         <li className={getLinkClass('/Players')}>
           <Link to="/Players">{i18n.t('players')}</Link>
         </li>
-        <li className={getLinkClass('/Auth')}>
-          <Link to="/Auth">{i18n.t('auth')}</Link>
-        </li>
+
         <li className="absolute top-10 right-16">
           <Switcher />
         </li>

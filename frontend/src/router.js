@@ -6,6 +6,7 @@ import TeamsPage from './pages/TeamsPage';
 import AuthPage from './pages/AuthPage';
 import Players from './pages/Players';
 import GuestLayout from './access/GuestLayout';
+import TeamsList from './pages/TeamsList';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: '/Teams',
     element: <TeamsPage />,
+  },
+  {
+    path: '/TeamsList',
+    element: <TeamsList />,
   },
   {
     path: '/Players',

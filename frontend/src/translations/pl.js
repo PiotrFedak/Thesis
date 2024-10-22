@@ -35,6 +35,7 @@ const pl = {
     conference: 'Konferencja',
     division: 'Dywizja',
 
+    teamsList: 'lista drużyn',
     clearResults: 'Wyczyść wyniki',
 
     footer: {

@@ -30,6 +30,7 @@ const en = {
     conference: 'Conference',
     division: 'Division',
 
+    teamsList: 'teams list',
     search: 'search',
 
     clearResults: 'Clear Results',
