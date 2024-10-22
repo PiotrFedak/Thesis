@@ -30,6 +30,8 @@ const en = {
     conference: 'Conference',
     division: 'Division',
 
+    search: 'search',
+
     clearResults: 'Clear Results',
 
     footer: {

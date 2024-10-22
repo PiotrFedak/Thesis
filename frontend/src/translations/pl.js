@@ -12,6 +12,8 @@ const pl = {
     goToMap: 'Przejdź do mapy',
     mapImageAlt: 'Mapa Klubów NBA',
 
+    search: 'szukaj',
+
     home: 'główna',
     players: 'zawodnicy',
     map: 'mapa',

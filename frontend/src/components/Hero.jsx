@@ -25,7 +25,7 @@ const Hero = () => {
           <Link
             to="/Auth"
             id="hero-get-started"
-            className="px-10 py-4 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
+            className="px-10 py-4 text-xl hover:scale-105 duration-300 font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
           >
             {t('getStarted')}
           </Link>

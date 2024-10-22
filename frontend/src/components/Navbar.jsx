@@ -83,7 +83,7 @@ const Navbar = () => {
         <div className="hidden 2xl:block">
           <Link
             to="/Auth"
-            className="top-8 flex absolute right-12 px-2 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
+            className="top-8 flex hover:shadow-xl hover:scale-105 duration-300 absolute right-12 px-2 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
           >
             {i18n.t('getStarted')}
           </Link>
