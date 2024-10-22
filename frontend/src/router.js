@@ -2,7 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import MapPage from './pages/MapPage';
-import TeamsPage from './pages/TeamsPage';
+import TeamsTable from './pages/TeamsTable';
 import AuthPage from './pages/AuthPage';
 import Players from './pages/Players';
 import GuestLayout from './access/GuestLayout';
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/Teams',
-    element: <TeamsPage />,
+    element: <TeamsTable />,
   },
   {
     path: '/TeamsList',

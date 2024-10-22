@@ -1,7 +1,7 @@
 const teams = [
   {
     name: 'Los Angeles Lakers',
-    image: 'LosAngelesLakers.png',
+    image: 'Lakers.png',
     description:
       'The Los Angeles Lakers, one of the most iconic NBA teams with a rich history of success.',
     history: [
@@ -14,7 +14,7 @@ const teams = [
   },
   {
     name: 'Chicago Bulls',
-    image: 'ChicagoBulls.png',
+    image: 'Bulls.png',
     description:
       'The Chicago Bulls, home to basketball legend Michael Jordan and a legacy of greatness.',
     history: [
@@ -27,7 +27,7 @@ const teams = [
   },
   {
     name: 'Toronto Raptors',
-    image: 'TorontoRaptors.png',
+    image: 'Raptors.png',
     description:
       'The Canadian professional basketball team Known for their championship win in 2019.',
     history: [
@@ -40,7 +40,7 @@ const teams = [
   },
   {
     name: 'Denver Nuggets',
-    image: 'DenverNuggets.png',
+    image: 'Nuggets.png',
     description:
       'Named after the Colorado Gold Rush, Best known for current star Nikola Jokić.',
     history: [
