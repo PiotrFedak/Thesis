@@ -7,6 +7,7 @@ import AuthPage from './pages/AuthPage';
 import Players from './pages/Players';
 import GuestLayout from './access/GuestLayout';
 import TeamsList from './pages/TeamsList';
+import SoloTeam from './pages/SoloTeam';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/TeamsList',
     element: <TeamsList />,
+  },
+  {
+    path: '/teams/:teamId',
+    element: <SoloTeam />,
   },
   {
     path: '/Players',

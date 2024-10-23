@@ -38,6 +38,11 @@ const pl = {
     teamsList: 'lista drużyn',
     clearResults: 'Wyczyść wyniki',
 
+    teamPageDescriptionSolo:
+      'Poznaj historię drużyny oraz podstawowe informacje o jej mieście, konferencji i dywizji.',
+    teamHistory: 'Historia Drużyny',
+    noHistory: 'Brak historii dla tej drużyny.',
+
     footer: {
       title: 'NBAVerse.',
       description: 'Praca Inżynierska Piotr Fedak',

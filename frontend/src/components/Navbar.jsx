@@ -122,7 +122,9 @@ const Navbar = () => {
         <li className={getLinkClass('/Players')}>
           <Link to="/Players">{i18n.t('players')}</Link>
         </li>
-
+        <li className={getLinkClass('/TeamsList')}>
+          <Link to="/TeamsList">{i18n.t('teamsList')}</Link>
+        </li>
         <li className="absolute top-10 right-16">
           <Switcher />
         </li>

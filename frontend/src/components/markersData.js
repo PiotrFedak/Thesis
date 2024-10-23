@@ -3,6 +3,7 @@ import { Icon } from 'leaflet';
 const markers = [
   {
     team: 'Denver nuggets',
+    teamId: 8,
     location: [39.74867266532661, -105.007597732176],
     address: '1000 Chopper Cir, Denver, CO 80204',
     icon: new Icon({
@@ -12,6 +13,7 @@ const markers = [
   },
   {
     team: 'Milwaukee Bucks',
+    teamId: 17,
     location: [43.04509199922204, -87.91734850425911],
     address: '1111 N Vel R. Phillips Ave, Milwaukee, WI 53203',
     icon: new Icon({
@@ -21,6 +23,7 @@ const markers = [
   },
   {
     team: 'Toronto Raptors',
+    teamId: 28,
     location: [43.64349220962489, -79.37909562710226],
     address: '40 Bay St., Toronto, ON M5J 2X2',
     icon: new Icon({
@@ -30,6 +33,7 @@ const markers = [
   },
   {
     team: 'Boston Celtics',
+    teamId: 2,
     location: [42.36619542101667, -71.06215831120917],
     address: '100 Legends Way, Boston, MA 02114',
     icon: new Icon({
@@ -39,6 +43,7 @@ const markers = [
   },
   {
     team: 'Los Angeles Lakers',
+    teamId: 14,
     location: [34.04312667072381, -118.26702563097173],
     address: '1111 S Figueroa St, Los Angeles, CA 90015',
     icon: new Icon({
@@ -48,6 +53,7 @@ const markers = [
   },
   {
     team: 'new york knicks',
+    teamId: 20,
     location: [40.75071835493097, -73.99242633451308],
     address: ' New York, NY 10001',
     icon: new Icon({
@@ -57,6 +63,7 @@ const markers = [
   },
   {
     team: 'Atlanta Hawks',
+    teamId: 1,
     location: [33.75764248778137, -84.3961416641311],
     address: '1 State Farm Dr, Atlanta, GA 30303',
     icon: new Icon({
@@ -66,6 +73,7 @@ const markers = [
   },
   {
     team: 'Washington Wizards',
+    teamId: 30,
     location: [38.898179390003634, -77.02084624847794],
     address: '601 F St NW, Washington, DC 20004',
     icon: new Icon({
@@ -75,6 +83,7 @@ const markers = [
   },
   {
     team: 'Detroit Pistons',
+    teamId: 9,
     location: [42.341494362661955, -83.0551519622027],
     address: '2645 Woodward Ave, Detroit, MI 48201',
     icon: new Icon({
@@ -84,6 +93,7 @@ const markers = [
   },
   {
     team: 'New Orleans Pelicans',
+    teamId: 19,
     location: [29.94922762504199, -90.08204396286676],
     address: '1501 Dave Dixon Dr, New Orleans, LA 70113',
     icon: new Icon({
@@ -93,6 +103,7 @@ const markers = [
   },
   {
     team: 'Indiana Pacers',
+    teamId: 12,
     location: [39.764173951643265, -86.15551638780539],
     address: '125 S Pennsylvania St, Indianapolis, IN 46204',
     icon: new Icon({
@@ -102,6 +113,7 @@ const markers = [
   },
   {
     team: 'Philadelphia 76ers',
+    teamId: 23,
     location: [39.90481366770261, -75.17132897520645],
     address: '3601 S Broad St, Philadelphia, PA 19148',
     icon: new Icon({
@@ -111,6 +123,7 @@ const markers = [
   },
   {
     team: 'Oklahoma City Thunder',
+    teamId: 21,
     location: [35.46438581609086, -97.51498463898018],
     address: '100 W Reno Ave, Oklahoma City, OK 73102',
     icon: new Icon({
@@ -120,6 +133,7 @@ const markers = [
   },
   {
     team: 'Portland Trail Blazers',
+    teamId: 25,
     location: [45.531780549947676, -122.66682788478155],
     address: '1 N Center Ct St, Portland, OR 97227',
     icon: new Icon({
@@ -129,6 +143,7 @@ const markers = [
   },
   {
     team: 'Orlando Magic',
+    teamId: 22,
     location: [28.53976358445202, -81.38385615719315],
     address: '400 W Church St, Orlando, FL 32801',
     icon: new Icon({
@@ -138,6 +153,7 @@ const markers = [
   },
   {
     team: 'PhoenixSuns',
+    teamId: 24,
     location: [33.44657685459291, -112.07109877200304],
     address: '201 E Jefferson St, Phoenix, AZ 85004',
     icon: new Icon({
@@ -147,6 +163,7 @@ const markers = [
   },
   {
     team: 'Miami Heat',
+    teamId: 16,
     location: [25.78283480212781, -80.18711514720873],
     address: ' 601 Biscayne Blvd, Miami, FL 33132',
     icon: new Icon({
@@ -156,6 +173,7 @@ const markers = [
   },
   {
     team: 'Sacramento Kings',
+    teamId: 26,
     location: [38.581396514387535, -121.49971372092479],
     address: '500 David J Stern Walk, Sacramento, CA 95814',
     icon: new Icon({
@@ -165,6 +183,7 @@ const markers = [
   },
   {
     team: 'Minnesota Timberwolves',
+    teamId: 18,
     location: [44.97966853985311, -93.27611334751393],
     address: '600 N 1st Ave, Minneapolis, MN 55403',
     icon: new Icon({
@@ -174,6 +193,7 @@ const markers = [
   },
   {
     team: 'San Antonio Spurs',
+    teamId: 27,
     location: [29.43620855420887, -98.43604187657935],
     address: '1 Frost Bank Center Dr, San Antonio, TX 78219',
     icon: new Icon({
@@ -183,6 +203,7 @@ const markers = [
   },
   {
     team: 'Golden State Warriors',
+    teamId: 10,
     location: [37.77147792281884, -122.38767444004293],
     address: '1 Warriors Way, San Francisco, CA 94158',
     icon: new Icon({
@@ -192,6 +213,7 @@ const markers = [
   },
   {
     team: 'Houston Rockets',
+    teamId: 11,
     location: [29.769105175055262, -95.36338776944349],
     address: '1510 Polk St, Houston, TX 77002,',
     icon: new Icon({
@@ -201,6 +223,7 @@ const markers = [
   },
   {
     team: 'Brooklyn Nets',
+    teamId: 3,
     location: [40.68328067488448, -73.97547086295634],
     address: '620 Atlantic Ave, Brooklyn, NY 11217',
     icon: new Icon({
@@ -210,6 +233,7 @@ const markers = [
   },
   {
     team: 'Chicago Bulls',
+    teamId: 5,
     location: [41.896238606021335, -87.67536047463182],
     address: '1901 W Madison St, Chicago, IL 60612',
     icon: new Icon({
@@ -219,6 +243,7 @@ const markers = [
   },
   {
     team: 'Cleveland Cavaliers',
+    teamId: 6,
     location: [41.503130370542735, -81.6885240438692],
     address: '1 Center Court, Cleveland, OH 44115',
     icon: new Icon({
@@ -228,6 +253,7 @@ const markers = [
   },
   {
     team: 'Charlotte Hornets',
+    teamId: 4,
     location: [35.22783785681046, -80.83970735663499],
     address: '333 E Trade St, Charlotte, NC 28202',
     icon: new Icon({
@@ -237,6 +263,7 @@ const markers = [
   },
   {
     team: 'Dallas Mavericks',
+    teamId: 7,
     location: [32.8103442301582, -96.80950968332428],
     address: '2500 Victory Ave, Dallas, TX 75219',
     icon: new Icon({
@@ -246,6 +273,7 @@ const markers = [
   },
   {
     team: 'Utah Jazz',
+    teamId: 29,
     location: [40.76971807394582, -111.90137289775218],
     address: '301 S Temple, Salt Lake City, UT 84101',
     icon: new Icon({
@@ -255,6 +283,7 @@ const markers = [
   },
   {
     team: 'Memphis Grizzlies',
+    teamId: 15,
     location: [35.14259406573528, -90.05163738384557],
     address: '191 Beale St, Memphis, TN 38103',
     icon: new Icon({
@@ -264,6 +293,7 @@ const markers = [
   },
   {
     team: 'Los Angeles Clippers',
+    teamId: 13,
     location: [33.946029198003394, -118.34200356917704],
     address: '3930 W Century Blvd, Inglewood, CA 90303',
     icon: new Icon({

@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import markersData from './markersData';
 import MarkerClusterGroup from 'react-leaflet-cluster';
+import { Link } from 'react-router-dom';
 
 const Map = () => {
   const center = [38.0, -97.0];
@@ -36,6 +37,12 @@ const Map = () => {
                     {marker.team}
                   </h2>
                   <p>{marker.address}</p>
+                  <Link
+                    to={`/teams/${marker.teamId}`}
+                    className="text-custom-blue underline font-semibold"
+                  >
+                    View Team Details
+                  </Link>
                 </Popup>
               </Marker>
             ))}

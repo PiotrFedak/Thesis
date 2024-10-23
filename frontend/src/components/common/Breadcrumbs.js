@@ -2,11 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-const BreadcrumbsPlayers = () => {
+const Breadcrumbs = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="breadcrumbs text-sm ml-6 absolute top-32 z-20 hidden md:block">
+    <div className="breadcrumbs hidden md:block mt-20 text-sm ml-6">
       <ul>
         <li>
           <button>
@@ -15,7 +15,12 @@ const BreadcrumbsPlayers = () => {
         </li>
         <li>
           <button>
-            <Link to="/Players">{t('search')}</Link>
+            <Link to="/Teams">{t('teams')}</Link>
+          </button>
+        </li>
+        <li>
+          <button>
+            <Link to="/TeamsList">{t('teamsList')}</Link>
           </button>
         </li>
       </ul>
@@ -23,4 +28,4 @@ const BreadcrumbsPlayers = () => {
   );
 };
 
-export default BreadcrumbsPlayers;
+export default Breadcrumbs;
