@@ -8,6 +8,7 @@ import Players from './pages/Players';
 import GuestLayout from './access/GuestLayout';
 import TeamsList from './pages/TeamsList';
 import SoloTeam from './pages/SoloTeam';
+import Games from './pages/Games';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/Players',
     element: <Players />,
+  },
+  {
+    path: '/Games',
+    element: <Games />,
   },
   {
     path: '/',

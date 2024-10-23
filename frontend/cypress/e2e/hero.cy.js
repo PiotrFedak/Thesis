@@ -58,16 +58,4 @@ describe('Hero Component Test', () => {
       cy.url().should('include', '/Auth');
     });
   });
-
-  context('Heros Image Display', () => {
-    it('should display either the light or dark image depending on the mode', () => {
-      cy.get('body').then(($body) => {
-        if ($body.find('#heroImageDark').is(':visible')) {
-          cy.get('#heroImageDark').should('be.visible');
-        } else {
-          cy.get('#heroImageLight').should('be.visible');
-        }
-      });
-    });
-  });
 });

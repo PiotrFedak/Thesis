@@ -30,6 +30,7 @@ const pl = {
       'Użyj wyszukiwarki graczy, aby znaleźć szczegółowe informacje o swoich ulubionych graczy NBA.',
     seeMore: 'Zobacz więcej',
 
+    games: 'mecze',
     team: 'Drużyna',
     city: 'Miasto',
     conference: 'Konferencja',

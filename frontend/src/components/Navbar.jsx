@@ -61,6 +61,9 @@ const Navbar = () => {
           <li className={getLinkClass('/Players')}>
             <Link to="/Players">{i18n.t('players')}</Link>
           </li>
+          <li className={getLinkClass('/Games')}>
+            <Link to="/Games">{i18n.t('games')}</Link>
+          </li>
         </ul>
 
         <div className="flex items-center justify-end space-x-4 lg:w-1/6">
@@ -124,6 +127,9 @@ const Navbar = () => {
         </li>
         <li className={getLinkClass('/TeamsList')}>
           <Link to="/TeamsList">{i18n.t('teamsList')}</Link>
+        </li>
+        <li className={getLinkClass('/Games')}>
+          <Link to="/Games">{i18n.t('games')}</Link>
         </li>
         <li className="absolute top-10 right-16">
           <Switcher />

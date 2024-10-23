@@ -6,7 +6,7 @@ const Breadcrumbs = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="breadcrumbs hidden md:block mt-20 text-sm ml-6">
+    <div className="breadcrumbs mt-28 md:mt-30 text-sm ml-6 hidden md:block">
       <ul>
         <li>
           <button>

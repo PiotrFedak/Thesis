@@ -7,6 +7,7 @@ import Breadcrumbs from '../components/common/Breadcrumbs';
 const TeamsList = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState('all');
 
   useEffect(() => {
     const getTeams = async () => {
@@ -23,6 +24,11 @@ const TeamsList = () => {
     getTeams();
   }, []);
 
+  const filteredTeams = teams.filter((team) => {
+    if (filter === 'all') return true;
+    return team.conference === filter;
+  });
+
   if (loading) {
     return <div className="mt-12 text-center text-lg">Loading teams...</div>;
   }
@@ -31,11 +37,31 @@ const TeamsList = () => {
     <div className="bg-custom-white dark:bg-custom-black text-custom-black dark:text-white overflow-y-hidden">
       <Navbar />
       <Breadcrumbs />
-      <h1 className="text-3xl font-bold text-center mb-8 text-custom-blue dark:text-custom-red">
-        NBA Teams
-      </h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-        {teams.map((team) => (
+
+      <div className="flex justify-between items-center">
+        <div className="dropdown dropdown-right mt mr-8 mb-2">
+          <div tabIndex={0} role="button" className="btn m-1">
+            Filter by Conference
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+          >
+            <li>
+              <a onClick={() => setFilter('all')}>All Teams</a>
+            </li>
+            <li>
+              <a onClick={() => setFilter('East')}>Eastern Conference</a>
+            </li>
+            <li>
+              <a onClick={() => setFilter('West')}>Western Conference</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-12">
+        {filteredTeams.map((team) => (
           <div
             key={team.id}
             className="team-card text-center p-6 bg-slate-200 dark:bg-black/70 shadow-lg rounded-lg hover:scale-110 transition-transform duration-300 cursor-pointer"
