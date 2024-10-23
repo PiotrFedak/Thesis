@@ -1,7 +1,7 @@
 const teamsPL = [
   {
     name: 'Los Angeles Lakers',
-    image: 'LosAngelesLakers.png',
+    image: 'Lakers.png',
     description:
       'Los Angeles Lakers, jedna z najbardziej ikonicznych drużyn NBA z bogatą historią sukcesów.',
     history: [
@@ -14,7 +14,7 @@ const teamsPL = [
   },
   {
     name: 'Chicago Bulls',
-    image: 'ChicagoBulls.png',
+    image: 'Bulls.png',
     description:
       'Chicago Bulls, drużyna koszykarska Michaela Jordana i legenda koszykówki.',
     history: [
@@ -27,7 +27,7 @@ const teamsPL = [
   },
   {
     name: 'Toronto Raptors',
-    image: 'TorontoRaptors.png',
+    image: 'Raptors.png',
     description:
       'Kanadyjska profesjonalna drużyna koszykarska, znana z mistrzostwa w 2019 roku.',
     history: [
@@ -40,7 +40,7 @@ const teamsPL = [
   },
   {
     name: 'Denver Nuggets',
-    image: 'DenverNuggets.png',
+    image: 'Nuggets.png',
     description:
       'Nazwani na cześć Gorączki Złota w Kolorado, najlepiej znani dzięki Nikola Jokić.',
     history: [

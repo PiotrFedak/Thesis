@@ -7,6 +7,7 @@ import BasketBlue from '../Images/BasketBlue.svg';
 import BasketRed from '../Images/BasketRed.svg';
 import playerSearchTranslation from '../translations/playerSearchTranslatio';
 import { useTranslation } from 'react-i18next';
+import BreadcrumbsPlayers from '../components/common/BreadcrumbsPlayers';
 
 const Players = () => {
   const { i18n } = useTranslation();
@@ -52,10 +53,14 @@ const Players = () => {
   };
 
   return (
-    <div className="relative h-screen overflow-y-hidden text-custom-black dark:text-white dark:bg-custom-black bg-white">
+    <div className="relative h-screen overflow-y-auto text-custom-black dark:text-white dark:bg-custom-black bg-white">
       <Navbar />
 
-      <div className="absolute left-0 top-5 w-1/4 h-full pointer-events-none opacity-80 hidden 2xl:block">
+      <div>
+        <BreadcrumbsPlayers />
+      </div>
+
+      <div className="absolute right-0 top-5 w-1/4 h-full pointer-events-none opacity-80 hidden 2xl:block">
         <img
           src={BasketBlue}
           alt="Basketball Background"
@@ -86,7 +91,6 @@ const Players = () => {
             <ClearButton clearSearch={clearSearch} />
           </div>
         </div>
-
         {loading && (
           <div className="flex justify-center">
             <LoadingSpinner size="lg" />

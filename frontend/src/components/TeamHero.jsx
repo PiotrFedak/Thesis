@@ -49,6 +49,7 @@ const TeamHero = () => {
             </p>
             <div className="flex justify-center gap-3 mt-4">
               <button
+                id="previous-team"
                 onClick={prevTeam}
                 className="btn px-4 py-2 font-semibold rounded-md text-white bg-custom-blue dark:bg-custom-red 
                  hover:bg-custom-white dark:hover:bg-custom-black border-4 border-custom-blue 
@@ -66,6 +67,7 @@ const TeamHero = () => {
                 </Link>
               </div>
               <button
+                id="next-team"
                 onClick={nextTeam}
                 className="btn px-4 py-2 font-semibold rounded-md text-white bg-custom-blue dark:bg-custom-red 
                  hover:bg-custom-white dark:hover:bg-custom-black border-4 border-custom-blue 

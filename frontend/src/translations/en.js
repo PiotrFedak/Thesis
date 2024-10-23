@@ -30,6 +30,14 @@ const en = {
     conference: 'Conference',
     division: 'Division',
 
+    teamPageDescriptionSolo:
+      'Learn about the history of the team, its city, conference, and division.',
+    teamHistory: 'Team History',
+    noHistory: 'No history available for this team.',
+
+    teamsList: 'teams list',
+    search: 'search',
+
     clearResults: 'Clear Results',
 
     footer: {
