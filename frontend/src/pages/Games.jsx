@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Navbar from '../components/Navbar';
 import { fetchGames } from '../services/ApiGames';
 
@@ -6,71 +7,109 @@ const Games = () => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [filter, setFilter] = useState('all');
+  const [nextCursor, setNextCursor] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cursorHistory, setCursorHistory] = useState([]);
+  const [teams, setTeams] = useState([]);
+  const [selectedTeam, setSelectedTeam] = useState(null);
 
   useEffect(() => {
-    const getGames = async () => {
+    const fetchTeams = async () => {
       try {
-        const gamesData = await fetchGames();
-        setGames(gamesData);
-        setLoading(false);
-      } catch (err) {
-        setError('Error loading games');
-        setLoading(false);
+        const response = await axios.get(
+          'https://api.balldontlie.io/v1/teams',
+          {
+            headers: {
+              Authorization: process.env.REACT_APP_NBA_API_KEY,
+            },
+          }
+        );
+        setTeams(response.data.data);
+      } catch (error) {
+        console.error('Error fetching teams:', error);
       }
     };
 
-    getGames();
+    fetchTeams();
   }, []);
 
-  const filteredGames = games.filter((game) => {
-    if (filter === 'all') return true;
-    if (filter === 'completed') return game.status === 'Final';
-    if (filter === 'upcoming') return game.status !== 'Final';
-    return true;
-  });
+  const getGames = async (cursor = null, page = 1) => {
+    setLoading(true);
+    try {
+      const { data, meta } = await fetchGames(cursor, selectedTeam);
+      setGames(data);
+      setNextCursor(meta.next_cursor);
 
-  if (loading) {
-    return <div className="text-center mt-8">Loading games...</div>;
-  }
+      if (cursor) {
+        setCursorHistory((prev) => [...prev, cursor]);
+      } else {
+        setCursorHistory([]);
+      }
 
-  if (error) {
+      setCurrentPage(page);
+      setLoading(false);
+    } catch (err) {
+      setError('Error loading games');
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getGames();
+  }, [selectedTeam]);
+
+  const handleNext = () => {
+    if (nextCursor) {
+      getGames(nextCursor, currentPage + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (cursorHistory.length > 1) {
+      const newHistory = [...cursorHistory];
+      newHistory.pop();
+      const previousCursor = newHistory[newHistory.length - 1];
+      setCursorHistory(newHistory);
+      getGames(previousCursor, currentPage - 1);
+    } else {
+      getGames(null, 1);
+    }
+  };
+
+  const handleTeamChange = (e) => {
+    setSelectedTeam(e.target.value);
+    setCurrentPage(1);
+    setCursorHistory([]);
+  };
+
+  if (loading) return <div className="text-center mt-8">Loading games...</div>;
+  if (error)
     return <div className="text-center mt-8 text-red-500">{error}</div>;
-  }
 
   return (
     <div className="mx-auto py-8 dark:bg-custom-black bg-custom-white">
       <Navbar />
-      <div className="flex justify-between items-center">
-        <h1 className="mt-28 text-3xl font-bold text-center mb-8 ml-8 text-custom-blue dark:text-custom-red">
-          NBA Games
-        </h1>
-        <div className="dropdown dropdown-end mt-28 mr-8">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn m-1 dark:bg-custom-black bg-custom-white text-custom-blue dark:text-custom-red"
-          >
-            Filter Games
-          </div>
-          <ul
-            tabIndex={0}
-            className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-          >
-            <li>
-              <a onClick={() => setFilter('all')}>All Games</a>
-            </li>
-            <li>
-              <a onClick={() => setFilter('completed')}>Completed Games</a>
-            </li>
-            <li>
-              <a onClick={() => setFilter('upcoming')}>Upcoming Games</a>
-            </li>
-          </ul>
-        </div>
+      <h1 className="mt-28 text-3xl font-bold text-center mb-8 text-custom-blue dark:text-custom-red">
+        NBA Games
+      </h1>
+
+      <div className="flex justify-center mb-4">
+        <select
+          value={selectedTeam || ''}
+          onChange={handleTeamChange}
+          className="select select-bordered w-full max-w-xs"
+        >
+          <option value="">All Teams</option>
+          {teams.map((team) => (
+            <option key={team.id} value={team.id}>
+              {team.full_name}
+            </option>
+          ))}
+        </select>
       </div>
+
       <div className="grid ml-8 mr-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filteredGames.map((game) => {
+        {games.map((game) => {
           const homeLogo = `/${game.home_team.name.replace(/ /g, '')}.png`;
           const visitorLogo = `/${game.visitor_team.name.replace(/ /g, '')}.png`;
 
@@ -142,6 +181,25 @@ const Games = () => {
             </div>
           );
         })}
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <div className="join grid grid-cols-2">
+          <button
+            className="join-item btn btn-outline"
+            onClick={handlePrevious}
+            disabled={currentPage === 1}
+          >
+            Previous page
+          </button>
+          <button
+            className="join-item btn btn-outline"
+            onClick={handleNext}
+            disabled={!nextCursor}
+          >
+            Next page
+          </button>
+        </div>
       </div>
     </div>
   );
