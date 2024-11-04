@@ -45,6 +45,9 @@ const en = {
     loadingTeams: 'Loading teams...',
     login: 'Login',
     signInWithGithub: 'Sign in with Github',
+    logoutSuccessful: 'loged out successful!',
+    loginSuccess: 'Login successful!',
+    loginFailed: 'Login failed. Please check your credentials.',
 
     playersPage: 'Players Page',
     playersPageDescription:

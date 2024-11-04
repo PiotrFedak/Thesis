@@ -63,12 +63,13 @@ const pl = {
     registrationFailed: 'Rejestracja nie powiodła się',
     teamsList: 'lista drużyn',
     clearResults: 'Wyczyść wyniki',
-
+    loginSuccess: 'Logowanie zakończone sukcesem!',
+    loginFailed: 'Logowanie nieudane. Sprawdź swoje dane.',
     teamPageDescriptionSolo:
       'Poznaj historię drużyny oraz podstawowe informacje o jej mieście, konferencji i dywizji.',
     teamHistory: 'Historia Drużyny',
     noHistory: 'Brak historii dla tej drużyny.',
-
+    logoutSuccessful: 'pomyślnie wylogowanao!',
     footer: {
       title: 'NBAVerse.',
       description: 'Praca Inżynierska Piotr Fedak',

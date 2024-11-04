@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Toggle from './common/Toggle';
 import GithubButton from '../components/common/GithubButton';
 import { useTranslation } from 'react-i18next';
+import axiosClientWeb from '../lib/axiosClientWeb';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Register = ({ toggleForm }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { setToken } = useStateContext();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,18 +29,17 @@ const Register = ({ toggleForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        ' https://pleased-usually-corgi.ngrok-free.app/api/register',
-        {
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-          password_confirmation: formData.password_confirmation,
-        }
-      );
+      const response = await axiosClientWeb.post('/api/register', {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        password_confirmation: formData.password_confirmation,
+      });
+
       setSuccess(t('registrationSuccess'));
       setError(null);
-      console.log(response.data);
+      setToken(response.data.token);
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || t('registrationFailed'));
       setSuccess(null);
