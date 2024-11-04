@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   IoCloseCircleOutline,
@@ -8,11 +8,14 @@ import {
 } from 'react-icons/io5';
 import Flag from 'react-flagkit';
 import Switcher from './common/Switcher';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { i18n } = useTranslation();
+  const { token, logout } = useStateContext();
 
   const handleNavChange = () => {
     setNav(!nav);
@@ -28,10 +31,10 @@ const Navbar = () => {
       : 'p-4';
   };
 
-  const showGetStartedButton =
-    location.pathname === '/' ||
-    location.pathname === '/Map' ||
-    location.pathname === '/Teams';
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <div className="fixed top-0 w-full bg-custom-white dark:bg-custom-black shadow-xl z-50">
@@ -80,18 +83,25 @@ const Navbar = () => {
             <Switcher />
           </div>
         </div>
-      </div>
 
-      {showGetStartedButton && (
         <div className="hidden 2xl:block">
-          <Link
-            to="/Auth"
-            className="top-8 flex hover:shadow-xl hover:scale-105 duration-300 absolute right-12 px-2 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
-          >
-            {i18n.t('getStarted')}
-          </Link>
+          {token ? (
+            <button
+              onClick={handleLogout}
+              className="top-8 flex hover:shadow-xl hover:scale-105 duration-300 absolute right-12 px-2 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
+            >
+              {i18n.t('logout')}
+            </button>
+          ) : (
+            <Link
+              to="/Auth"
+              className="top-8 flex hover:shadow-xl hover:scale-105 duration-300 absolute right-12 px-2 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
+            >
+              {i18n.t('getStarted')}
+            </Link>
+          )}
         </div>
-      )}
+      </div>
 
       <div
         onClick={handleNavChange}
@@ -113,9 +123,6 @@ const Navbar = () => {
         <li className={getLinkClass('/')}>
           <Link to="/">{i18n.t('home')}</Link>
         </li>
-        <li className={getLinkClass('/Auth')}>
-          <Link to="/Auth">{i18n.t('login')}</Link>
-        </li>
         <li className={getLinkClass('/Map')}>
           <Link to="/Map">{i18n.t('map')}</Link>
         </li>
@@ -131,6 +138,17 @@ const Navbar = () => {
         <li className={getLinkClass('/Games')}>
           <Link to="/Games">{i18n.t('games')}</Link>
         </li>
+
+        <li className={getLinkClass('/Auth')}>
+          {token ? (
+            <button onClick={handleLogout} className="w-full text-left">
+              {i18n.t('logout')}
+            </button>
+          ) : (
+            <Link to="/Auth">{i18n.t('login')}</Link>
+          )}
+        </li>
+
         <li className="absolute top-10 right-16">
           <Switcher />
         </li>
