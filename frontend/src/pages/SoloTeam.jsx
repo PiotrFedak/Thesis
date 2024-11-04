@@ -66,7 +66,7 @@ const SoloTeam = () => {
   const teamHistory = teamHistories[team.name] || t('noHistory');
 
   return (
-    <div className="text-custom-black min-h-screen dark:text-white dark:bg-custom-black bg-custom-white z-10">
+    <div className="text-custom-black relative h-screen overflow-y-auto dark:text-white dark:bg-custom-black bg-custom-white z-10">
       <div className="container mx-auto py-8 relative">
         <Navbar />
         <Breadcrumbs />
@@ -94,7 +94,7 @@ const SoloTeam = () => {
           </p>
         </div>
 
-        <div className="card shadow-lg bg-slate-200 dark:bg-black/60 p-6 mx-4">
+        <div className="card shadow-lg bg-slate-200 dark:bg-black/20 p-6 mx-4">
           <h2 className="text-2xl font-bold mb-4 text-custom-blue dark:text-custom-red text-center">
             {t('teamHistory')}
           </h2>

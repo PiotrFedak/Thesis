@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import { fetchGames } from '../services/ApiGames';
 import { useTranslation } from 'react-i18next';
+import Footer from '../layouts/Footer';
 
 const Games = () => {
   const { t } = useTranslation();
@@ -205,6 +206,9 @@ const Games = () => {
             {t('nextPage')}
           </button>
         </div>
+      </div>
+      <div className="dark:text-white text-custom-black">
+        <Footer />
       </div>
     </div>
   );

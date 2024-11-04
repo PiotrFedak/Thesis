@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import { fetchTeams } from '../services/apiTeamList';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import { useTranslation } from 'react-i18next';
+import Footer from '../layouts/Footer';
 
 const TeamsList = () => {
   const { t } = useTranslation();
@@ -66,7 +67,7 @@ const TeamsList = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-12">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-14">
         {filteredTeams.map((team) => (
           <div
             key={team.id}
@@ -90,6 +91,9 @@ const TeamsList = () => {
             </Link>
           </div>
         ))}
+      </div>
+      <div className="mt-12">
+        <Footer />
       </div>
     </div>
   );
