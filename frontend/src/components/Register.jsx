@@ -25,7 +25,7 @@ const Register = ({ toggleForm }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'https://sponge-climbing-adder.ngrok-free.app/api/register',
+        ' https://pleased-usually-corgi.ngrok-free.app/api/register',
         {
           name: formData.name,
           email: formData.email,
