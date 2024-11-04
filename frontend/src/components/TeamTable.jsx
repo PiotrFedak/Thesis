@@ -59,7 +59,7 @@ const TeamTable = () => {
   };
 
   if (loading) {
-    return <p>Loading team data...</p>;
+    return <p className="mt-12 text-center text-lg">Loading team data...</p>;
   }
 
   if (error) {

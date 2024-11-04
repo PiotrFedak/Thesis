@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Toggle from './common/Toggle';
 import GithubButton from '../components/common/GithubButton';
+import { useTranslation } from 'react-i18next';
 
 const Register = ({ toggleForm }) => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,11 +33,11 @@ const Register = ({ toggleForm }) => {
           password_confirmation: formData.password_confirmation,
         }
       );
-      setSuccess('Registration successful!');
+      setSuccess(t('registrationSuccess'));
       setError(null);
       console.log(response.data);
     } catch (err) {
-      setError(err.response?.data?.message || 'Registration failed');
+      setError(err.response?.data?.message || t('registrationFailed'));
       setSuccess(null);
     }
   };
@@ -48,12 +50,14 @@ const Register = ({ toggleForm }) => {
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black dark:text-white">Name</span>
+            <span className="label-text text-black dark:text-white">
+              {t('name')}
+            </span>
           </label>
           <input
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder={t('namePlaceholder')}
             className="input input-bordered text-black dark:text-white bg-slate-200 dark:bg-black/60"
             value={formData.name}
             onChange={handleChange}
@@ -63,12 +67,14 @@ const Register = ({ toggleForm }) => {
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black dark:text-white">Email</span>
+            <span className="label-text text-black dark:text-white">
+              {t('email')}
+            </span>
           </label>
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder={t('emailPlaceholder')}
             className="input input-bordered text-black dark:text-white bg-slate-200 dark:bg-black/60"
             value={formData.email}
             onChange={handleChange}
@@ -79,13 +85,13 @@ const Register = ({ toggleForm }) => {
         <div className="form-control">
           <label className="label">
             <span className="label-text text-black dark:text-white">
-              Password
+              {t('password')}
             </span>
           </label>
           <input
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder={t('passwordPlaceholder')}
             className="input input-bordered text-black dark:text-white bg-slate-200 dark:bg-black/60"
             value={formData.password}
             onChange={handleChange}
@@ -96,13 +102,13 @@ const Register = ({ toggleForm }) => {
         <div className="form-control">
           <label className="label">
             <span className="label-text text-black dark:text-white">
-              Confirm Password
+              {t('confirmPassword')}
             </span>
           </label>
           <input
             type="password"
             name="password_confirmation"
-            placeholder="Confirm Password"
+            placeholder={t('confirmPasswordPlaceholder')}
             className="input input-bordered text-black dark:text-white bg-slate-200 dark:bg-black/60"
             value={formData.password_confirmation}
             onChange={handleChange}
@@ -112,12 +118,12 @@ const Register = ({ toggleForm }) => {
 
         <div className="form-control mt-6">
           <button className="btn text-white bg-custom-blue dark:bg-custom-red hover:bg-slate-400 hover:shadow-xl hover:scale-105 duration-300 dark:hover:bg-custom-black mb-4">
-            Register
+            {t('register')}
           </button>
         </div>
 
         <div className="form-control">
-          <GithubButton text="Sign up with Github" />
+          <GithubButton text={t('signUpWithGithub')} />
         </div>
 
         <Toggle toggleForm={toggleForm} isLogin={false} />

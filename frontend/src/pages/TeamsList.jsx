@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { fetchTeams } from '../services/apiTeamList';
 import Breadcrumbs from '../components/common/Breadcrumbs';
+import { useTranslation } from 'react-i18next';
 
 const TeamsList = () => {
+  const { t } = useTranslation();
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
@@ -30,7 +32,7 @@ const TeamsList = () => {
   });
 
   if (loading) {
-    return <div className="mt-12 text-center text-lg">Loading teams...</div>;
+    return <div className="mt-12 text-center text-lg">{t('loadingTeams')}</div>;
   }
 
   return (
@@ -40,21 +42,25 @@ const TeamsList = () => {
 
       <div className="flex justify-between items-center">
         <div className="dropdown dropdown-right mt mr-8 mb-2">
-          <div tabIndex={0} role="button" className="btn m-1">
-            Filter by Conference
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn m-1 dark:bg-custom-black bg-transparent text-custom-black dark:text-white hover:bg-inherit"
+          >
+            {t('filterByConference')}
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+            className="dropdown-content menu rounded-box z-[1] w-52 p-2 shadow text-custom-black dark:text-white bg-custom-white dark:bg-custom-black"
           >
             <li>
-              <a onClick={() => setFilter('all')}>All Teams</a>
+              <a onClick={() => setFilter('all')}>{t('allTeams')}</a>
             </li>
             <li>
-              <a onClick={() => setFilter('East')}>Eastern Conference</a>
+              <a onClick={() => setFilter('East')}>{t('easternConference')}</a>
             </li>
             <li>
-              <a onClick={() => setFilter('West')}>Western Conference</a>
+              <a onClick={() => setFilter('West')}>{t('westernConference')}</a>
             </li>
           </ul>
         </div>

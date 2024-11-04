@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import { fetchGames } from '../services/ApiGames';
+import { useTranslation } from 'react-i18next';
 
 const Games = () => {
+  const { t } = useTranslation();
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -49,7 +51,7 @@ const Games = () => {
       setCurrentPage(page);
       setLoading(false);
     } catch (err) {
-      setError('Error loading games');
+      setError(t('errorLoadingGames'));
       setLoading(false);
     }
   };
@@ -82,7 +84,8 @@ const Games = () => {
     setCursorHistory([]);
   };
 
-  if (loading) return <div className="text-center mt-8">Loading games...</div>;
+  if (loading)
+    return <div className="mt-12 text-center text-lg">{t('loadingGames')}</div>;
   if (error)
     return <div className="text-center mt-8 text-red-500">{error}</div>;
 
@@ -90,16 +93,16 @@ const Games = () => {
     <div className="mx-auto py-8 dark:bg-custom-black bg-custom-white">
       <Navbar />
       <h1 className="mt-28 text-3xl font-bold text-center mb-8 text-custom-blue dark:text-custom-red">
-        NBA Games
+        {t('nbaGames')}
       </h1>
 
       <div className="flex justify-center mb-4">
         <select
           value={selectedTeam || ''}
           onChange={handleTeamChange}
-          className="select select-bordered w-full max-w-xs"
+          className="select select-bordered w-full max-w-xs mb-4 dark:bg-custom-black bg-white dark:border-gray-600 border-gray-900 text-custom-black dark:text-white"
         >
-          <option value="">All Teams</option>
+          <option value="">{t('allTeams')}</option>
           {teams.map((team) => (
             <option key={team.id} value={team.id}>
               {team.full_name}
@@ -148,16 +151,18 @@ const Games = () => {
                 </div>
                 <div className="text-center">
                   <p className="text-lg font-bold text-custom-black dark:text-white">
-                    VS
+                    {t('vs')}
                   </p>
                   <p className="text-sm text-gray-500">{game.status}</p>
                   {isUpcoming ? (
                     <p className="text-sm text-yellow-600 dark:text-yellow-300">
-                      SOON
+                      {t('soon')}
                     </p>
                   ) : (
                     game.status === 'Final' && (
-                      <p className="text-sm text-green-500">Winner: {winner}</p>
+                      <p className="text-sm text-green-500">
+                        {t('winner')}: {winner}
+                      </p>
                     )
                   )}
                 </div>
@@ -190,14 +195,14 @@ const Games = () => {
             onClick={handlePrevious}
             disabled={currentPage === 1}
           >
-            Previous page
+            {t('previousPage')}
           </button>
           <button
             className="join-item btn btn-outline"
             onClick={handleNext}
             disabled={!nextCursor}
           >
-            Next page
+            {t('nextPage')}
           </button>
         </div>
       </div>
