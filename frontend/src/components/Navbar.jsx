@@ -183,9 +183,21 @@ const Navbar = () => {
           <Link to="/Games">{i18n.t('games')}</Link>
         </li>
 
-        <li className="absolute top-10 right-14">
+        <dir className="absolute top-10 right-14">
           <Switcher />
-        </li>
+        </dir>
+        <ul className="absolute top-11 right-48 flex space-x-4">
+          <li>
+            <button id="flag-US" onClick={() => changeLanguage('en')}>
+              <Flag country="US" size={32} />
+            </button>
+          </li>
+          <li>
+            <button id="flag-PL" onClick={() => changeLanguage('pl')}>
+              <Flag country="PL" size={32} />
+            </button>
+          </li>
+        </ul>
 
         {token && (
           <div className="absolute top-8 right-28">
