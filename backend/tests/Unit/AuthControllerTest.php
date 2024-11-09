@@ -104,4 +104,45 @@ class AuthControllerTest extends TestCase
         $response->assertStatus(401);
         $response->assertJson(["message" => "Unauthenticated."]);
     }
+    public function testRegisterWithInvalidEmailFormat(): void
+    {
+        $response = $this->postJson("/api/register", [
+            "name" => "Test User",
+            "email" => "invalid-email-format",
+            "password" => "password123",
+            "password_confirmation" => "password123",
+        ]);
+
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors(["email"]);
+    }
+
+    public function testLoginWithoutPassword(): void
+    {
+        User::factory()->create([
+            "email" => "test@example.com",
+            "password" => bcrypt("password123"),
+            "isAdmin" => false,
+        ]);
+
+        $response = $this->postJson("/api/login", [
+            "email" => "test@example.com",
+        ]);
+
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors(["password"]);
+    }
+
+    public function testRegisterWithMismatchedPasswordConfirmation(): void
+    {
+        $response = $this->postJson("/api/register", [
+            "name" => "Test User",
+            "email" => "test@example.com",
+            "password" => "password123",
+            "password_confirmation" => "differentpassword",
+        ]);
+
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors(["password"]);
+    }
 }
