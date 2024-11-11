@@ -70,6 +70,7 @@ const pl = {
     teamHistory: 'Historia Drużyny',
     noHistory: 'Brak historii dla tej drużyny.',
     logoutSuccessful: 'pomyślnie wylogowanao!',
+    logout: 'wyloguj',
     footer: {
       title: 'NBAVerse.',
       description: 'Praca Inżynierska Piotr Fedak',

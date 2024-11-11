@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
@@ -9,13 +9,30 @@ import {
 import Flag from 'react-flagkit';
 import Switcher from './common/Switcher';
 import { useStateContext } from '../contexts/ContextProvider';
+import axiosClientWeb from '../lib/axiosClientWeb';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
   const { i18n } = useTranslation();
   const { token, logout } = useStateContext();
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axiosClientWeb.get('/api/getCurrentUser');
+        setCurrentUser(response.data.user);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    if (token) {
+      fetchUserData();
+    }
+  }, [token]);
 
   const handleNavChange = () => {
     setNav(!nav);
@@ -33,8 +50,13 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
+    setCurrentUser(null);
     navigate('/');
   };
+
+  const userInitial = currentUser?.name
+    ? currentUser.name.charAt(0).toUpperCase()
+    : '?';
 
   return (
     <div className="fixed top-0 w-full bg-custom-white dark:bg-custom-black shadow-xl z-50">
@@ -69,38 +91,60 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="flex items-center justify-end space-x-4 lg:w-1/6">
-          <div className="flex flex-col items-center space-y-3 lg:mr-0 mr-2">
+        <ul className="hidden md:flex items-center space-x-4">
+          <li>
             <button id="flag-US" onClick={() => changeLanguage('en')}>
               <Flag country="US" size={32} />
             </button>
+          </li>
+          <li>
             <button id="flag-PL" onClick={() => changeLanguage('pl')}>
               <Flag country="PL" size={32} />
             </button>
-          </div>
-          <div id="dark-mode-switcher" className="pt-8 lg:pr-0 pr-8">
-            {' '}
+          </li>
+          <li className="pt-6">
             <Switcher />
-          </div>
-        </div>
-
-        <div className="hidden 2xl:block">
-          {token ? (
-            <button
-              onClick={handleLogout}
-              className="top-8 flex hover:shadow-xl hover:scale-105 duration-300 absolute right-12 px-2 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
-            >
-              {i18n.t('logout')}
-            </button>
-          ) : (
-            <Link
-              to="/Auth"
-              className="top-8 flex hover:shadow-xl hover:scale-105 duration-300 absolute right-12 px-2 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
-            >
-              {i18n.t('getStarted')}
-            </Link>
-          )}
-        </div>
+          </li>
+          <li>
+            {token ? (
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="avatar mb-1 w-12 h-12 bg-custom-blue dark:bg-custom-red text-white dark:text-custom-white flex items-center justify-center rounded-full font-bold cursor-pointer"
+                >
+                  {userInitial}
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                >
+                  <li className="text-custom-white dark:text-white font-semibold px-4">
+                    {currentUser?.name}
+                  </li>
+                  <li className="text-custom-white dark:text-gray-400 text-sm px-4">
+                    {currentUser?.email}
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left text-red-500"
+                    >
+                      {i18n.t('logout')}
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link
+                to="/Auth"
+                className="pb-2 pt-2 hover:shadow-xl hover:scale-105 duration-300 px-4 py-2 text-xl font-semibold bg-custom-blue dark:bg-custom-red text-white border-2 rounded-md hover:bg-white dark:hover:bg-custom-black hover:text-custom-blue dark:hover:text-custom-white transition-colors"
+              >
+                {i18n.t('getStarted')}
+              </Link>
+            )}
+          </li>
+        </ul>
       </div>
 
       <div
@@ -139,19 +183,54 @@ const Navbar = () => {
           <Link to="/Games">{i18n.t('games')}</Link>
         </li>
 
-        <li className={getLinkClass('/Auth')}>
-          {token ? (
-            <button onClick={handleLogout} className="w-full text-left">
-              {i18n.t('logout')}
-            </button>
-          ) : (
-            <Link to="/Auth">{i18n.t('login')}</Link>
-          )}
-        </li>
-
-        <li className="absolute top-10 right-16">
+        <dir className="absolute top-10 right-14">
           <Switcher />
-        </li>
+        </dir>
+        <ul className="absolute top-11 right-48 flex space-x-4">
+          <li>
+            <button id="flag-US" onClick={() => changeLanguage('en')}>
+              <Flag country="US" size={32} />
+            </button>
+          </li>
+          <li>
+            <button id="flag-PL" onClick={() => changeLanguage('pl')}>
+              <Flag country="PL" size={32} />
+            </button>
+          </li>
+        </ul>
+
+        {token && (
+          <div className="absolute top-8 right-28">
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="avatar w-12 h-12 bg-custom-blue dark:bg-custom-red text-white flex items-center justify-center rounded-full font-bold cursor-pointer"
+              >
+                {userInitial}
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 rounded-box w-52 p-2 shadow"
+              >
+                <li className="text-custom-white dark:text-white font-semibold px-4 text-sm">
+                  {currentUser?.name}
+                </li>
+                <li className="text-custom-white dark:text-white font-semibold px-4 text-sm">
+                  {currentUser?.email}
+                </li>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left text-red-500"
+                  >
+                    {i18n.t('logout')}
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
       </ul>
     </div>
   );
