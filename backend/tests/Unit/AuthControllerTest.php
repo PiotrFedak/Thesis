@@ -104,6 +104,7 @@ class AuthControllerTest extends TestCase
         $response->assertStatus(401);
         $response->assertJson(["message" => "Unauthenticated."]);
     }
+
     public function testRegisterWithInvalidEmailFormat(): void
     {
         $response = $this->postJson("/api/register", [

@@ -14,30 +14,29 @@ class UserControllerTest extends TestCase
 
     public function testGetCurrentUserWhenAuthenticated(): void
     {
-        $user = User::factory()->create(['isAdmin' => false]);
+        $user = User::factory()->create(["isAdmin" => false]);
         $token = $user->createToken("TestToken")->plainTextToken;
-    
+
         $response = $this->withHeaders(["Authorization" => "Bearer $token"])
-                         ->getJson("/api/getCurrentUser");
-    
+            ->getJson("/api/getCurrentUser");
+
         $response->assertStatus(200)
-                 ->assertJson([
-                     "user" => [
-                         "id" => $user->id,
-                         "name" => $user->name,
-                         "email" => $user->email,
-                     ],
-                 ]);
-    }
-    
+            ->assertJson([
+                "user" => [
+                    "id" => $user->id,
+                    "name" => $user->name,
+                    "email" => $user->email,
+                ],
+            ]);
+    }    
 
     public function testGetCurrentUserWhenUnauthenticated(): void
     {
         $response = $this->getJson("/api/getCurrentUser");
 
         $response->assertStatus(401)
-                 ->assertJson([
-                     "message" => "Unauthenticated.",
-                 ]);
+            ->assertJson([
+                "message" => "Unauthenticated.",
+            ]);
     }
 }
