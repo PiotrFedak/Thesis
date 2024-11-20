@@ -58,7 +58,7 @@ const en = {
     city: 'City',
     conference: 'Conference',
     division: 'Division',
-
+    PanelUser: 'User panel menagment',
     teamPageDescriptionSolo:
       'Learn about the history of the team, its city, conference, and division.',
     teamHistory: 'Team History',

@@ -24,7 +24,7 @@ const pl = {
     previous: 'Poprzedni',
     next: 'Następny',
     goToTeams: 'Przejdź do Drużyn',
-
+    PanelUser: 'Panel zarządzania użytkownikami',
     playersPage: 'Strona Graczy',
     playersPageDescription:
       'Użyj wyszukiwarki graczy, aby znaleźć szczegółowe informacje o swoich ulubionych graczy NBA.',
