@@ -26,6 +26,7 @@ class User extends Authenticatable
         "password",
         "favorites",
         "isAdmin",
+        'role',
     ];
 
     /**

@@ -14,8 +14,10 @@ const AdminPanel = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axiosClientWeb.get('/api/users');
-        setUsers(response.data.users);
+        const response = await axiosClientWeb.get(
+          `/api/users?page=${currentPage}`
+        );
+        setUsers(response.data.data);
         setTotalPages(response.data.last_page);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -23,19 +25,12 @@ const AdminPanel = () => {
     };
 
     fetchUsers();
-  }, []);
+  }, [currentPage]);
 
   const handleDeleteUser = async (id) => {
     try {
-      const response = await fetch(`/api/users/${id}`, {
-        method: 'DELETE',
-      });
-
-      if (response.ok) {
-        setUsers(users.filter((user) => user.id !== id));
-      } else {
-        console.error('Error deleting user:', response.statusText);
-      }
+      await axiosClientWeb.delete(`/api/users/${id}`);
+      setUsers(users.filter((user) => user.id !== id));
     } catch (error) {
       console.error('Error deleting user:', error);
     }
