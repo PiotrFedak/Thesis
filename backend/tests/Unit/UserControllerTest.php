@@ -14,7 +14,7 @@ class UserControllerTest extends TestCase
 
     public function testGetCurrentUserWhenAuthenticated(): void
     {
-        $user = User::factory()->create(["isAdmin" => false]);
+        $user = User::factory()->create(["role" => "user"]);
         $token = $user->createToken("TestToken")->plainTextToken;
 
         $response = $this->withHeaders(["Authorization" => "Bearer $token"])
