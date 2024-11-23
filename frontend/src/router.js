@@ -9,6 +9,8 @@ import GuestLayout from './access/GuestLayout';
 import TeamsList from './pages/TeamsList';
 import SoloTeam from './pages/SoloTeam';
 import Games from './pages/Games';
+import AdminPanel from './pages/AdminPanel';
+import WaitingPage from './pages/WaitingPage';
 
 const router = createBrowserRouter([
   {
@@ -40,12 +42,20 @@ const router = createBrowserRouter([
     element: <Games />,
   },
   {
+    path: '/Admin',
+    element: <AdminPanel />,
+  },
+  {
     path: '/',
     element: <GuestLayout />,
     children: [
       {
         path: '/Auth',
         element: <AuthPage />,
+      },
+      {
+        path: '/wait',
+        element: <WaitingPage />,
       },
     ],
   },

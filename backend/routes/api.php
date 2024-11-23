@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +20,8 @@ use App\Http\Controllers\TeamController;
 |
 */
 
+
+
 Route::get("/teams", [TeamController::class, "index"]);
 Route::post("/register", [AuthController::class, "register"]);
 Route::post("/login", [AuthController::class, "login"]);
@@ -26,4 +29,12 @@ Route::post("/login", [AuthController::class, "login"]);
 Route::middleware("auth:sanctum")->group(function (): void {
     Route::post("/logout", [AuthController::class, "logout"]);
     Route::get("/getCurrentUser", [UserController::class, "getCurrentUser"]);
+
+Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+    Route::get('/users', [UserController::class, 'index']);
+    Route::post('/users', [UserController::class, 'store']);
+    Route::delete('/users/{id}', [UserController::class, 'destroy']);
+    Route::put('/users/{id}', [UserController::class, 'update']);
+    });
+    
 });

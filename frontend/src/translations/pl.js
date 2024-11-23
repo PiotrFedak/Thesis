@@ -13,7 +13,7 @@ const pl = {
     mapImageAlt: 'Mapa Klubów NBA',
 
     search: 'szukaj',
-
+    GameFinal: 'Koniec',
     home: 'główna',
     players: 'zawodnicy',
     map: 'mapa',
@@ -24,12 +24,12 @@ const pl = {
     previous: 'Poprzedni',
     next: 'Następny',
     goToTeams: 'Przejdź do Drużyn',
-
+    PanelUser: 'Panel zarządzania użytkownikami',
     playersPage: 'Strona Graczy',
     playersPageDescription:
       'Użyj wyszukiwarki graczy, aby znaleźć szczegółowe informacje o swoich ulubionych graczy NBA.',
     seeMore: 'Zobacz więcej',
-
+    finalStatus: 'Zakończone',
     games: 'mecze',
     team: 'Drużyna',
     city: 'Miasto',
@@ -42,7 +42,12 @@ const pl = {
     previousPage: 'Poprzednia strona',
     nextPage: 'Następna strona',
     vs: 'VS',
+    CreateUser: 'stwórz nowego urzytkownika',
     soon: 'WKRÓTCE',
+    delete: 'usuń',
+    Edit: 'Edytuj',
+    Edituser: 'Edytuj użytkownika',
+    action: 'akcje',
     winner: 'Zwycięzca',
     filterByConference: 'Filtruj według konferencji',
     easternConference: 'Konferencja Wschodnia',
@@ -54,6 +59,10 @@ const pl = {
     passwordPlaceholder: 'Wprowadź swoje hasło',
     signInWithGithub: 'Zaloguj się przez Github',
     name: 'Imię',
+    CreNewUser: 'Stwórz nowego użytkownika',
+    cre: 'Stwórz',
+    cancel: 'Anuluj',
+    Role: 'Rola',
     namePlaceholder: 'Wprowadź swoje imię',
     confirmPassword: 'Potwierdź hasło',
     confirmPasswordPlaceholder: 'Potwierdź swoje hasło',
@@ -82,6 +91,10 @@ const pl = {
       teams: 'Drużyny',
       players: 'Gracze',
     },
+
+    dontHaveAccount: 'Nie masz konta?',
+    registerHere: 'Zarejestruj się tutaj',
+    loginHere: 'Zaloguj się tutaj',
 
     auth: {
       loginNow: 'Zaloguj się teraz!',

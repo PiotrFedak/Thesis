@@ -8,7 +8,7 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="mt-12 flex flex-col w-full">
+    <div className="mt-14 flex flex-col w-full">
       <div className="flex w-full h-screen flex-col lg:flex-row">
         <div className="justify-center items-start w-full lg:w-1/2 flex flex-col p-10 lg:p-20">
           <h1 id="hero-title" className="text-5xl lg:text-8xl font-bold mb-6">

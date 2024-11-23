@@ -39,6 +39,18 @@ const Login = ({ toggleForm }) => {
     }
   };
 
+  const handleGithubClick = () => {
+    const nameG = 'github';
+    axiosClientWeb
+      .get(`/auth/${nameG}/redirect`)
+      .then(({ data }) => {
+        window.location.href = data.authUrl;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="card text-black bg-white dark:bg-black/70 dark:backdrop-blur-md w-full max-w-2xl h-[600px] shadow-2xl mb-32">
       <form className="card-body" onSubmit={handleSubmit}>
@@ -85,7 +97,10 @@ const Login = ({ toggleForm }) => {
         </div>
 
         <div className="form-control">
-          <GithubButton text={t('signInWithGithub')} />
+          <GithubButton
+            text={t('signInWithGithub')}
+            onClick={handleGithubClick}
+          />
         </div>
 
         <Toggle toggleForm={toggleForm} isLogin={true} />

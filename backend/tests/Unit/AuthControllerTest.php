@@ -23,7 +23,7 @@ class AuthControllerTest extends TestCase
         ]);
 
         $response->assertStatus(200);
-        $this->assertDatabaseHas("users", ["email" => "test@wp.pl"]);
+        $this->assertDatabaseHas("users", ["email" => "test@wp.pl", "role" => "user"]);
         $response->assertJsonStructure([
             "user" => [
                 "id", "name", "email", "created_at", "updated_at",
@@ -36,7 +36,7 @@ class AuthControllerTest extends TestCase
     {
         User::factory()->create([
             "email" => "test@wp.pl",
-            "isAdmin" => false,
+            "role" => "user",
         ]);
 
         $response = $this->postJson("/api/register", [
@@ -55,7 +55,7 @@ class AuthControllerTest extends TestCase
         User::factory()->create([
             "email" => "test@wp.pl",
             "password" => Hash::make("password123"),
-            "isAdmin" => false,
+            "role" => "user",
         ]);
 
         $response = $this->postJson("/api/login", [
@@ -72,7 +72,7 @@ class AuthControllerTest extends TestCase
         User::factory()->create([
             "email" => "email@example.com",
             "password" => bcrypt("password@example"),
-            "isAdmin" => false,
+            "role" => "user",
         ]);
 
         $response = $this->postJson("/api/login", [
@@ -88,7 +88,7 @@ class AuthControllerTest extends TestCase
 
     public function testLogoutUser(): void
     {
-        $user = User::factory()->create(["isAdmin" => false]);
+        $user = User::factory()->create(["role" => "user",]);
         $token = $user->createToken("TestToken")->plainTextToken;
 
         $response = $this->withHeaders(["Authorization" => "Bearer $token"])
@@ -123,7 +123,7 @@ class AuthControllerTest extends TestCase
         User::factory()->create([
             "email" => "test@example.com",
             "password" => bcrypt("password123"),
-            "isAdmin" => false,
+            "role" => "user",
         ]);
 
         $response = $this->postJson("/api/login", [

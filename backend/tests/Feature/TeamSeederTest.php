@@ -19,8 +19,8 @@ class TeamSeederTest extends TestCase
 
         $seededTeams = Team::all();
 
-        $this->assertGreaterThan(0, $seededTeams->count(), "No teams were seeded.");
-        $this->assertCount(30, $seededTeams, "The number of seeded teams is not 30. Something is wrong");
+        $this->assertGreaterThan(0, $seededTeams->count(), "seeded not successful");
+        $this->assertCount(30, $seededTeams, "There should be exactly 30 teams. Something is wrong");
 
         foreach ($seededTeams as $team) {
             $this->assertIsInt($team->team_id, "The team_id for {$team->name} is not an integer.");

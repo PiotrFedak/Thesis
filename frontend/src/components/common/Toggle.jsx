@@ -1,29 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 const Toggle = ({ toggleForm, isLogin }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="mt-4 text-center">
       {isLogin ? (
         <p className="text-black dark:text-white">
-          Don&#39;t have an account?{' '}
+          {t('dontHaveAccount')}{' '}
           <button
             type="button"
             onClick={toggleForm}
             className="link link-hover text-gray-400"
           >
-            Register here
+            {t('registerHere')}
           </button>
         </p>
       ) : (
         <p className="text-gray-500">
-          Already have an account?{' '}
+          {t('alreadyHaveAccount')}{' '}
           <button
             type="button"
             onClick={toggleForm}
             className="link link-hover text-gray-400"
           >
-            Login here
+            {t('loginHere')}
           </button>
         </p>
       )}

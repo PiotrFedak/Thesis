@@ -25,7 +25,10 @@ class User extends Authenticatable
         "email",
         "password",
         "favorites",
-        "isAdmin",
+        'role',
+        'provider',
+        'provider_id',
+        'provider_token',
     ];
 
     /**
