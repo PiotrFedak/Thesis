@@ -29,6 +29,7 @@ const en = {
       'Here you can search for NBA teams you are interested in and learn more about them.',
     previous: 'Previous',
     next: 'Next',
+    cancel: 'Cancel',
     goToTeams: 'Go to Teams Page',
     nbaGames: 'NBA Games',
     allTeams: 'All Teams',
@@ -37,6 +38,9 @@ const en = {
     previousPage: 'Previous page',
     nextPage: 'Next page',
     vs: 'VS',
+    Role: 'Role',
+    cre: 'Create',
+    CreNewUser: 'Create a new user',
     soon: 'SOON',
     winner: 'Winner',
     filterByConference: 'Filter by Conference',
@@ -69,7 +73,11 @@ const en = {
     loginHere: 'Login here',
     teamsList: 'teams list',
     search: 'search',
-
+    action: 'action',
+    Edituser: 'Edit user',
+    Edit: 'Edit',
+    delete: 'delete',
+    CreateUser: 'create a new user',
     clearResults: 'Clear Results',
 
     footer: {

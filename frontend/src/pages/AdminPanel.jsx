@@ -94,15 +94,15 @@ const AdminPanel = () => {
               onClick={() => setIsCreateModalOpen(true)}
               className="bg-green-500 px-6 py-3 rounded-md mx-auto block text-white mb-4"
             >
-              Stwórz nowego użytkownika
+              {t('CreateUser')}
             </button>
             <table className="w-full mb-8">
               <thead>
                 <tr className="text-left border-b">
                   <th className="py-2">ID</th>
-                  <th className="py-2">Nazwa</th>
+                  <th className="py-2"> {t('name')}</th>
                   <th className="py-2">Email</th>
-                  <th className="py-2">Akcje</th>
+                  <th className="py-2">{t('action')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -118,14 +118,14 @@ const AdminPanel = () => {
                           className="bg-custom-olive px-4 py-2 rounded-md mr-2 flex items-center"
                         >
                           <FiEdit className="mr-2" />
-                          Edytuj
+                          {t('Edit')}
                         </button>
                         <button
                           onClick={() => handleDeleteUser(user.id)}
                           className="bg-red-500 px-4 py-2 rounded-md flex items-center"
                         >
                           <FiTrash2 className="mr-2" />
-                          Usuń
+                          {t('delete')}
                         </button>
                       </td>
                     </tr>
@@ -150,7 +150,7 @@ const AdminPanel = () => {
       {selectedUser && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-lg font-bold mb-4">Edytuj użytkownika</h2>
+            <h2 className="text-lg font-bold mb-4">{t('Edituser')}</h2>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -209,11 +209,9 @@ const AdminPanel = () => {
         </div>
       )}
       {isCreateModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center dark:text-white">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-lg font-bold mb-4">
-              Stwórz nowego użytkownika
-            </h2>
+            <h2 className="text-lg font-bold mb-4">{t('CreNewUser')}</h2>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -227,10 +225,12 @@ const AdminPanel = () => {
               }}
             >
               <div className="mb-4">
-                <label className="block text-sm font-bold mb-2">Imię</label>
+                <label className="block text-sm font-bold mb-2">
+                  {t('name')}
+                </label>
                 <input
                   name="name"
-                  className="w-full px-3 py-2 border rounded"
+                  className="w-full px-3 py-2 border rounded bg-slate-300 dark:bg-custom-black"
                   required
                 />
               </div>
@@ -238,24 +238,28 @@ const AdminPanel = () => {
                 <label className="block text-sm font-bold mb-2">Email</label>
                 <input
                   name="email"
-                  className="w-full px-3 py-2 border rounded"
+                  className="w-full px-3 py-2 border rounded bg-slate-300 dark:bg-custom-black"
                   required
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-bold mb-2">Hasło</label>
+                <label className="block text-sm font-bold mb-2">
+                  {t('password')}
+                </label>
                 <input
                   name="password"
                   type="password"
-                  className="w-full px-3 py-2 border rounded"
+                  className="w-full px-3 py-2 border rounded bg-slate-300 dark:bg-custom-black"
                   required
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-bold mb-2">Rola</label>
+                <label className="block text-sm font-bold mb-2">
+                  {t('Role')}
+                </label>
                 <select
                   name="role"
-                  className="w-full px-3 py-2 border rounded"
+                  className="w-full px-3 py-2 border rounded bg-slate-300 dark:bg-custom-black"
                   required
                 >
                   <option value="user">User</option>
@@ -268,13 +272,13 @@ const AdminPanel = () => {
                   onClick={() => setIsCreateModalOpen(false)}
                   className="mr-2 px-4 py-2 bg-gray-300 rounded"
                 >
-                  Anuluj
+                  {t('cancle')}
                 </button>
                 <button
                   type="submit"
                   className="px-4 py-2 bg-blue-500 text-white rounded"
                 >
-                  Stwórz
+                  {t('cre')}
                 </button>
               </div>
             </form>
