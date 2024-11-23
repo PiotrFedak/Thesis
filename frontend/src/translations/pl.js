@@ -13,7 +13,7 @@ const pl = {
     mapImageAlt: 'Mapa Klubów NBA',
 
     search: 'szukaj',
-
+    GameFinal: 'Koniec',
     home: 'główna',
     players: 'zawodnicy',
     map: 'mapa',
@@ -29,7 +29,7 @@ const pl = {
     playersPageDescription:
       'Użyj wyszukiwarki graczy, aby znaleźć szczegółowe informacje o swoich ulubionych graczy NBA.',
     seeMore: 'Zobacz więcej',
-
+    finalStatus: 'Zakończone',
     games: 'mecze',
     team: 'Drużyna',
     city: 'Miasto',
@@ -82,6 +82,10 @@ const pl = {
       teams: 'Drużyny',
       players: 'Gracze',
     },
+
+    dontHaveAccount: 'Nie masz konta?',
+    registerHere: 'Zarejestruj się tutaj',
+    loginHere: 'Zaloguj się tutaj',
 
     auth: {
       loginNow: 'Zaloguj się teraz!',

@@ -123,6 +123,8 @@ const Games = () => {
               : game.visitor_team.full_name;
 
           const isUpcoming = game.status !== 'Final';
+          const translatedStatus =
+            game.status === 'Final' ? t('finalStatus') : game.status;
 
           return (
             <div
@@ -154,7 +156,7 @@ const Games = () => {
                   <p className="text-lg font-bold text-custom-black dark:text-white">
                     {t('vs')}
                   </p>
-                  <p className="text-sm text-gray-500">{game.status}</p>
+                  <p className="text-sm text-gray-500">{translatedStatus}</p>
                   {isUpcoming ? (
                     <p className="text-sm text-yellow-600 dark:text-yellow-300">
                       {t('soon')}
@@ -183,6 +185,11 @@ const Games = () => {
                     {isUpcoming ? '—' : game.visitor_team_score}
                   </p>
                 </div>
+              </div>
+              <div className="bottom-0 left-0 right-0 text-center text-gray-600 dark:text-gray-400 text-sm">
+                {game.date
+                  ? new Date(game.date).toLocaleDateString()
+                  : t('noDateAvailable')}
               </div>
             </div>
           );

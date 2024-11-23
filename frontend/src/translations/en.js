@@ -53,7 +53,7 @@ const en = {
     playersPageDescription:
       'Use the Players Search Bar to find detailed informations about your favorite NBA players.',
     seeMore: 'See More',
-
+    GameFinal: 'ended',
     team: 'Team',
     city: 'City',
     conference: 'Conference',
@@ -63,7 +63,10 @@ const en = {
       'Learn about the history of the team, its city, conference, and division.',
     teamHistory: 'Team History',
     noHistory: 'No history available for this team.',
-
+    finalStatus: 'Final',
+    dontHaveAccount: "Don't have an account?",
+    registerHere: 'Register here',
+    loginHere: 'Login here',
     teamsList: 'teams list',
     search: 'search',
 

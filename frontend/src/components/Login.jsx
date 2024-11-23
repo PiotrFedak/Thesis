@@ -40,7 +40,6 @@ const Login = ({ toggleForm }) => {
   };
 
   const handleGithubClick = () => {
-    console.log('GitHub clicked');
     const nameG = 'github';
     axiosClientWeb
       .get(`/auth/${nameG}/redirect`)
