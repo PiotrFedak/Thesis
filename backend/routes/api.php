@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,6 +19,8 @@ use App\Http\Controllers\TeamController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+
 
 Route::get("/teams", [TeamController::class, "index"]);
 Route::post("/register", [AuthController::class, "register"]);

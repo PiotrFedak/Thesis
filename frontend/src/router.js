@@ -10,6 +10,7 @@ import TeamsList from './pages/TeamsList';
 import SoloTeam from './pages/SoloTeam';
 import Games from './pages/Games';
 import AdminPanel from './pages/AdminPanel';
+import WaitingPage from './pages/WaitingPage';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/Auth',
         element: <AuthPage />,
+      },
+      {
+        path: '/wait',
+        element: <WaitingPage />,
       },
     ],
   },

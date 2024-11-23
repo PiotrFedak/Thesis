@@ -26,6 +26,9 @@ class User extends Authenticatable
         "password",
         "favorites",
         'role',
+        'provider',
+        'provider_id',
+        'provider_token',
     ];
 
     /**
