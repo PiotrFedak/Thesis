@@ -97,9 +97,12 @@ const Login = ({ toggleForm }) => {
         </div>
 
         <div className="form-control">
-          <GithubButton text={t('signInWithGithub')} />
+          <GithubButton
+            text={t('signInWithGithub')}
+            onClick={handleGithubClick}
+          />
         </div>
-        <button onClick={handleGithubClick}>Log Git</button>
+
         <Toggle toggleForm={toggleForm} isLogin={true} />
       </form>
     </div>
