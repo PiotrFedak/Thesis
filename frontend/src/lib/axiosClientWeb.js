@@ -1,27 +1,28 @@
 import axios from 'axios';
 
 const axiosClientWeb = axios.create({
-  baseURL: 'http://127.0.0.1:8000',
+  baseURL: 'https://pleased-usually-corgi.ngrok-free.app/',
 });
 
 axiosClientWeb.interceptors.request.use((config) => {
-  const token = localStorage.getItem('ACCESS_TOKEN');
-  config.headers.Authorization = `Bearer ${token}`;
-  console.log(token);
-
+  const token = localStorage.getItem('authToken');
+  config.headers['ngrok-skip-browser-warning'] = 'true';
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
   return config;
 });
+
 axiosClientWeb.interceptors.response.use(
   (response) => {
     return response;
   },
   (error) => {
-    const { response } = error;
-    if (response && response.status == 401) {
-      localStorage.removeItem('ACCESS_TOKEN');
+    if (error.response && error.response.status === 401) {
+      localStorage.removeItem('authToken');
+      window.location.href = '/';
     }
-
-    throw error;
+    return Promise.reject(error);
   }
 );
 
