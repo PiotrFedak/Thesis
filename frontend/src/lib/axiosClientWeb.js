@@ -5,7 +5,7 @@ const axiosClientWeb = axios.create({
 });
 
 axiosClientWeb.interceptors.request.use((config) => {
-  const token = localStorage.getItem('authToken');
+  const token = localStorage.getItem('ACCESS_TOKEN');
   config.headers['ngrok-skip-browser-warning'] = 'true';
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
