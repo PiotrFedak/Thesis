@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\FavoriteController;
 
 
 /*
@@ -25,6 +26,10 @@ use App\Http\Controllers\TeamController;
 Route::get("/teams", [TeamController::class, "index"]);
 Route::post("/register", [AuthController::class, "register"]);
 Route::post("/login", [AuthController::class, "login"]);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/favorites', [FavoriteController::class, 'index']);
+    Route::post('/favorites/toggle', [FavoriteController::class, 'toggle']);
+});
 
 Route::middleware("auth:sanctum")->group(function (): void {
     Route::post("/logout", [AuthController::class, "logout"]);

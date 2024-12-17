@@ -81,7 +81,7 @@ const Navbar = () => {
             <Link to="/Map">{i18n.t('map')}</Link>
           </li>
           <li className={getLinkClass('/Teams')}>
-            <Link to="/Teams">{i18n.t('teams')}</Link>
+            <Link to="/TeamsList">{i18n.t('teams')}</Link>
           </li>
           <li className={getLinkClass('/Players')}>
             <Link to="/Players">{i18n.t('players')}</Link>
@@ -171,7 +171,7 @@ const Navbar = () => {
           <Link to="/Map">{i18n.t('map')}</Link>
         </li>
         <li className={getLinkClass('/Teams')}>
-          <Link to="/Teams">{i18n.t('teams')}</Link>
+          <Link to="/TeamsTable">{i18n.t('teamsTable')}</Link>
         </li>
         <li className={getLinkClass('/Players')}>
           <Link to="/Players">{i18n.t('players')}</Link>

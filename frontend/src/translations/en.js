@@ -72,6 +72,7 @@ const en = {
     registerHere: 'Register here',
     loginHere: 'Login here',
     teamsList: 'teams list',
+    teamsTable: 'teams table',
     search: 'search',
     action: 'action',
     Edituser: 'Edit user',
