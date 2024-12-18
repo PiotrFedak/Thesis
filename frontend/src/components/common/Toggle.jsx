@@ -11,6 +11,7 @@ const Toggle = ({ toggleForm, isLogin }) => {
         <p className="text-black dark:text-white">
           {t('dontHaveAccount')}{' '}
           <button
+            id="register"
             type="button"
             onClick={toggleForm}
             className="link link-hover text-gray-400"
@@ -22,6 +23,7 @@ const Toggle = ({ toggleForm, isLogin }) => {
         <p className="text-gray-500">
           {t('alreadyHaveAccount')}{' '}
           <button
+            id="login"
             type="button"
             onClick={toggleForm}
             className="link link-hover text-gray-400"
