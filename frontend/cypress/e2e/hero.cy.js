@@ -24,7 +24,7 @@ describe('Hero Component Test', () => {
     });
 
     it('should have the Login link and navigate to Auth page on click in English version', () => {
-      cy.get('#hero-login-link').should('exist').and('contain.text', 'Log in');
+      cy.get('#hero-login-link').should('exist').and('contain.text', 'Login');
       cy.get('#hero-login-link').click();
       cy.url().should('include', '/Auth');
     });
