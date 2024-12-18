@@ -15,7 +15,7 @@ const Breadcrumbs = () => {
         </li>
         <li>
           <button>
-            <Link to="/Teams">{t('teams')}</Link>
+            <Link to="/TeamsTable">{t('teamsTable')}</Link>
           </button>
         </li>
         <li>

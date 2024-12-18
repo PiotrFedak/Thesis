@@ -5,29 +5,51 @@ import { fetchTeams } from '../services/apiTeamList';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import { useTranslation } from 'react-i18next';
 import Footer from '../layouts/Footer';
+import axiosClientWeb from '../lib/axiosClientWeb';
+import { CiHeart } from 'react-icons/ci';
+import { FaHeart } from 'react-icons/fa';
 
 const TeamsList = () => {
   const { t } = useTranslation();
   const [teams, setTeams] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    const getTeams = async () => {
+    const getTeamsAndFavorites = async () => {
       try {
         const teamsData = await fetchTeams();
+        const favResponse = await axiosClientWeb.get('/api/favorites');
         setTeams(teamsData);
+        setFavorites(favResponse.data);
       } catch (error) {
-        console.error('Error loading teams:', error);
+        console.error('Error loading data:', error);
       } finally {
         setLoading(false);
       }
     };
-
-    getTeams();
+    getTeamsAndFavorites();
   }, []);
 
-  const filteredTeams = teams.filter((team) => {
+  const toggleFavorite = async (teamId) => {
+    try {
+      const response = await axiosClientWeb.post('/api/favorites/toggle', {
+        team_id: teamId,
+      });
+      setFavorites(response.data.favorites);
+    } catch (error) {
+      console.error('Error toggling favorite:', error);
+    }
+  };
+
+  const sortedTeams = [...teams].sort((a, b) => {
+    const aIsFavorite = favorites.includes(a.id) ? -1 : 1;
+    const bIsFavorite = favorites.includes(b.id) ? -1 : 1;
+    return aIsFavorite - bIsFavorite;
+  });
+
+  const filteredTeams = sortedTeams.filter((team) => {
     if (filter === 'all') return true;
     return team.conference === filter;
   });
@@ -71,8 +93,23 @@ const TeamsList = () => {
         {filteredTeams.map((team) => (
           <div
             key={team.id}
-            className="team-card text-center p-6 bg-slate-200 dark:bg-black/70 shadow-lg rounded-lg hover:scale-110 transition-transform duration-300 cursor-pointer"
+            className="relative team-card text-center p-6 bg-slate-200 dark:bg-black/70 shadow-lg rounded-lg hover:scale-110 transition-transform duration-300"
           >
+            <button
+              className="absolute top-2 right-2 text-2xl"
+              onClick={() => toggleFavorite(team.id)}
+              aria-label={
+                favorites.includes(team.id)
+                  ? t('removeFavorite')
+                  : t('addFavorite')
+              }
+            >
+              {favorites.includes(team.id) ? (
+                <FaHeart className="text-red-500 hover:scale-125 transition-transform" />
+              ) : (
+                <CiHeart className="text-gray-500 hover:scale-125 transition-transform" />
+              )}
+            </button>
             <Link to={`/teams/${team.id}`}>
               <img
                 src={`${team.name.replace(/ /g, '')}.png`}

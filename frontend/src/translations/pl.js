@@ -71,6 +71,7 @@ const pl = {
     registrationSuccess: 'Rejestracja zakończona sukcesem!',
     registrationFailed: 'Rejestracja nie powiodła się',
     teamsList: 'lista drużyn',
+    teamsTable: 'tabela drużyn',
     clearResults: 'Wyczyść wyniki',
     loginSuccess: 'Logowanie zakończone sukcesem!',
     loginFailed: 'Logowanie nieudane. Sprawdź swoje dane.',

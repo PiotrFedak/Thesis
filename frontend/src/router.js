@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     element: <MapPage />,
   },
   {
-    path: '/Teams',
+    path: '/TeamsTable',
     element: <TeamsTable />,
   },
   {
