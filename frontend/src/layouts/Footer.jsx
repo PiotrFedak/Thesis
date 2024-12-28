@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="grid grid-flow-col gap-2">
             <Link to="/">{t('footer.home')}</Link>
             <Link to="/Map">{t('footer.map')}</Link>
-            <Link to="/Teams">{t('footer.teams')}</Link>
+            <Link to="/TeamsTable">{t('footer.teams')}</Link>
             <Link to="/Players">{t('footer.players')}</Link>
           </div>
         </div>

@@ -91,7 +91,10 @@ const Login = ({ toggleForm }) => {
         </div>
 
         <div className="form-control mt-12">
-          <button className="btn text-white bg-custom-blue dark:bg-custom-red hover:bg-slate-400 hover:shadow-xl hover:scale-105 duration-300 dark:hover:bg-custom-black mb-4">
+          <button
+            id="SubmitLogin"
+            className="btn text-white bg-custom-blue dark:bg-custom-red hover:bg-slate-400 hover:shadow-xl hover:scale-105 duration-300 dark:hover:bg-custom-black mb-4"
+          >
             {t('login')}
           </button>
         </div>

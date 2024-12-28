@@ -66,7 +66,7 @@ const Navbar = () => {
           </h1>
         </div>
 
-        <ul className="hidden md:flex items-center space-x-4">
+        <ul id="navbar" className="hidden md:flex items-center space-x-4">
           <li className={getLinkClass('/')}>
             <Link to="/">{i18n.t('home')}</Link>
           </li>
@@ -85,13 +85,13 @@ const Navbar = () => {
         </ul>
 
         <div className="hidden md:flex items-center space-x-4">
-          <button onClick={() => changeLanguage('en')}>
+          <button id="flag-US" onClick={() => changeLanguage('en')}>
             <Flag country="US" size={32} />
           </button>
-          <button onClick={() => changeLanguage('pl')}>
+          <button id="flag-PL" onClick={() => changeLanguage('pl')}>
             <Flag country="PL" size={32} />
           </button>
-          <div className="mt-7">
+          <div id="dark-mode-switcher" className="mt-7">
             <Switcher />
           </div>
           {token ? (
@@ -211,10 +211,10 @@ const Navbar = () => {
         </ul>
 
         <div className="flex space-x-4 items-center mt-4">
-          <button onClick={() => changeLanguage('en')}>
+          <button id="flag-US" onClick={() => changeLanguage('en')}>
             <Flag country="US" size={28} />
           </button>
-          <button onClick={() => changeLanguage('pl')}>
+          <button id="flag-PL" onClick={() => changeLanguage('pl')}>
             <Flag country="PL" size={28} />
           </button>
           <div className="mt-7">
