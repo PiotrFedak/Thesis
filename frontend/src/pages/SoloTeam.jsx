@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
-import teamHistories from '../data/teamHistories';
+import teamHistories from '../components/common/teamHistories';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import { useTranslation } from 'react-i18next';
 

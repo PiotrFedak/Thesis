@@ -272,7 +272,7 @@ const AdminPanel = () => {
                   onClick={() => setIsCreateModalOpen(false)}
                   className="mr-2 px-4 py-2 bg-gray-300 rounded"
                 >
-                  {t('cancle')}
+                  {t('cancel')}
                 </button>
                 <button
                   type="submit"
