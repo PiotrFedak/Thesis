@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 namespace App\Http\Middleware;
 
@@ -19,6 +18,6 @@ class CheckAdmin
             return $next($request);
         }
 
-        return response()->json(['error' => 'Unauthorized'], 403);
+        return redirect('/login')->with('error', 'You do not have access to this resource.');
     }
 }

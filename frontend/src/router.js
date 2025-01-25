@@ -6,6 +6,7 @@ import TeamsTable from './pages/TeamsTable';
 import AuthPage from './pages/AuthPage';
 import Players from './pages/Players';
 import GuestLayout from './access/GuestLayout';
+import DefaultLayout from './access/DefaultLayout';
 import TeamsList from './pages/TeamsList';
 import SoloTeam from './pages/SoloTeam';
 import Games from './pages/Games';
@@ -22,28 +23,12 @@ const router = createBrowserRouter([
     element: <MapPage />,
   },
   {
-    path: '/TeamsTable',
-    element: <TeamsTable />,
-  },
-  {
-    path: '/TeamsList',
-    element: <TeamsList />,
-  },
-  {
-    path: '/teams/:teamId',
-    element: <SoloTeam />,
-  },
-  {
     path: '/Players',
     element: <Players />,
   },
   {
     path: '/Games',
     element: <Games />,
-  },
-  {
-    path: '/Admin',
-    element: <AdminPanel />,
   },
   {
     path: '/',
@@ -56,6 +41,28 @@ const router = createBrowserRouter([
       {
         path: '/wait',
         element: <WaitingPage />,
+      },
+    ],
+  },
+  {
+    path: '/',
+    element: <DefaultLayout />,
+    children: [
+      {
+        path: '/TeamsTable',
+        element: <TeamsTable />,
+      },
+      {
+        path: '/TeamsList',
+        element: <TeamsList />,
+      },
+      {
+        path: '/teams/:teamId',
+        element: <SoloTeam />,
+      },
+      {
+        path: '/Admin',
+        element: <AdminPanel />,
       },
     ],
   },
