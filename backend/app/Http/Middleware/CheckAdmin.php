@@ -18,6 +18,6 @@ class CheckAdmin
             return $next($request);
         }
 
-        return redirect('/login')->with('error', 'You do not have access to this resource.');
+        return redirect('/')->with('error', 'You do not have access to this resource.');
     }
 }

@@ -10,7 +10,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 const Register = ({ toggleForm }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { setToken } = useStateContext();
+  const { setToken, setUser } = useStateContext();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -36,9 +36,13 @@ const Register = ({ toggleForm }) => {
         password_confirmation: formData.password_confirmation,
       });
 
+      const { user, token } = response.data;
       setSuccess(t('registrationSuccess'));
       setError(null);
-      setToken(response.data.token);
+
+      setToken(token);
+      setUser(user);
+
       navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || t('registrationFailed'));
@@ -54,7 +58,7 @@ const Register = ({ toggleForm }) => {
         window.location.href = data.authUrl;
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   };
 

@@ -26,11 +26,16 @@ const Login = ({ toggleForm }) => {
         password: formData.password,
       });
 
-      if (response.data && response.data.token) {
+      if (response.data?.token && response.data?.user) {
         setToken(response.data.token);
         setUser(response.data.user);
         setError(null);
-        navigate('/');
+
+        if (response.data.user.role === 'admin') {
+          navigate('/Admin');
+        } else {
+          navigate('/');
+        }
       } else {
         setError(t('loginFailed'));
       }
@@ -47,7 +52,7 @@ const Login = ({ toggleForm }) => {
         window.location.href = data.authUrl;
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   };
 
