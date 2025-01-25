@@ -42,6 +42,6 @@ class ProviderController extends Controller
     ]);
 
 
-       return redirect('http://localhost:3000/wait?token=' . $res['token'] . '&user=' . urlencode(json_encode($res['user'])));
+       return redirect('https://fascinating-sopapillas-d21aa4.netlify.app/wait?token=' . $res['token'] . '&user=' . urlencode(json_encode($res['user'])));
 }
 }
