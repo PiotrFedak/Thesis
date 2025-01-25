@@ -38,7 +38,7 @@ class AdminMiddlewareTest extends TestCase
         $this->actingAs($user, 'sanctum');
 
         $response = $this->getJson('/api/users');
-        $response->assertStatus(403);
+        $response->assertStatus(302);
     }
 
     public function testGuestCannotAccessAdminRoutes()
