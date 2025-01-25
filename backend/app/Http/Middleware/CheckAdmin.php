@@ -5,11 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-namespace App\Http\Middleware;
-
-use Closure;
-use Illuminate\Http\Request;
-
 class CheckAdmin
 {
     public function handle(Request $request, Closure $next)
@@ -18,6 +13,6 @@ class CheckAdmin
             return $next($request);
         }
 
-        return redirect('/')->with('error', 'You do not have access to this resource.');
+        return redirect('/Auth')->with(['error' => 'Unauthorized'], 403);
     }
 }
